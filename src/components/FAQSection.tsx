@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FAQS } from '../data/restaurantData';
-import { ChevronDown, HelpCircle, Sparkles } from 'lucide-react';
+import { ArrowDown01Icon, HelpCircleIcon } from 'hugeicons-react';
 
 export const FAQSection: React.FC = () => {
   const [openId, setOpenId] = useState<string | null>(FAQS[0].id);
@@ -20,15 +20,15 @@ export const FAQSection: React.FC = () => {
     : FAQS.filter((faq) => faq.category === categoryFilter);
 
   return (
-    <section id="faq" className="py-20 md:py-28 bg-[#FCFAF7] border-b border-neutral-100">
-      <div className="max-w-4xl mx-auto px-4 md:px-8">
+    <section id="faq" className="py-20 md:py-28 bg-[#F4F1E8] border-b border-[#CDD2C9] select-none">
+      <div className="max-w-4xl mx-auto px-6 md:px-12">
         
         {/* Section Header */}
         <div className="text-center space-y-4 mb-12">
-          <h2 className="font-heading text-3xl md:text-5xl font-bold text-[#111111] tracking-tight">
+          <h2 className="font-heading text-3xl md:text-5xl font-normal text-[#2D3A1F] tracking-tight">
             Frequently Asked Questions
           </h2>
-          <p className="font-sans text-neutral-600 text-base md:text-lg">
+          <p className="font-sans text-[#2D3A1F]/80 text-base md:text-lg font-light">
             Everything you need to know about dining, reservations, parking, and catering services.
           </p>
         </div>
@@ -39,10 +39,10 @@ export const FAQSection: React.FC = () => {
             <button
               key={cat.value}
               onClick={() => setCategoryFilter(cat.value)}
-              className={`font-heading text-xs font-semibold uppercase tracking-wider px-4 py-2 rounded-full transition-all cursor-pointer ${
+              className={`font-heading text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full transition-all cursor-pointer ${
                 categoryFilter === cat.value
-                  ? 'bg-[#111111] text-white shadow-md'
-                  : 'bg-white text-neutral-600 hover:bg-neutral-100 border border-neutral-200'
+                  ? 'bg-[#2D3A1F] text-[#F4F1E8] shadow-md'
+                  : 'bg-[#E8E2D0] text-[#2D3A1F] hover:bg-[#F4F1E8] border border-[#CDD2C9]'
               }`}
             >
               {cat.label}
@@ -58,26 +58,26 @@ export const FAQSection: React.FC = () => {
             return (
               <div
                 key={faq.id}
-                className="bg-white rounded-2xl border border-neutral-200/80 shadow-xs overflow-hidden transition-all duration-200"
+                className="bg-[#E8E2D0] rounded-2xl border border-[#CDD2C9] shadow-xs overflow-hidden transition-all duration-200"
               >
                 <button
                   onClick={() => setOpenId(isOpen ? null : faq.id)}
                   className="w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none cursor-pointer"
                 >
-                  <span className="font-heading text-base md:text-lg font-bold text-[#111111] hover:text-[#FF5B3E] transition-colors">
+                  <span className="font-heading text-base md:text-lg font-bold text-[#2D3A1F] hover:text-[#B8A678] transition-colors">
                     {faq.question}
                   </span>
                   <div
                     className={`p-2 rounded-full transition-transform duration-300 ${
-                      isOpen ? 'bg-[#FF5B3E] text-white rotate-180' : 'bg-neutral-100 text-neutral-600'
+                      isOpen ? 'bg-[#2D3A1F] text-[#F4F1E8] rotate-180' : 'bg-[#F4F1E8] text-[#2D3A1F]'
                     }`}
                   >
-                    <ChevronDown className="w-4 h-4" />
+                    <ArrowDown01Icon size={16} />
                   </div>
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 text-sm text-neutral-600 font-sans leading-relaxed border-t border-neutral-100 pt-4 animate-in fade-in duration-200">
+                  <div className="px-6 pb-6 text-sm text-[#2D3A1F]/80 font-sans leading-relaxed border-t border-[#CDD2C9]/60 pt-4 animate-in fade-in duration-200 font-light">
                     {faq.answer}
                   </div>
                 )}
@@ -90,3 +90,4 @@ export const FAQSection: React.FC = () => {
     </section>
   );
 };
+

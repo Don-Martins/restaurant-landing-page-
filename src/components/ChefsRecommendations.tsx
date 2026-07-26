@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Star, Plus, Eye, Utensils } from 'lucide-react';
+import { StarIcon, Add01Icon, ViewIcon, Restaurant01Icon } from 'hugeicons-react';
 import { motion } from 'motion/react';
 import { MENU_ITEMS } from '../data/restaurantData';
 import { MenuItem } from '../types';
@@ -42,8 +42,8 @@ export const ChefsRecommendations: React.FC<ChefsRecommendationsProps> = ({
     : MENU_ITEMS.filter((item) => item.category === selectedCategory);
 
   return (
-    <section id="chefs-recommendations" className="py-16 md:py-24 bg-[#FCFAF7] border-b border-neutral-100 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
+    <section id="chefs-recommendations" className="py-16 md:py-24 bg-[#E8E2D0] border-b border-[#CDD2C9] overflow-hidden select-none">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
         
         {/* Section Title */}
         <motion.div 
@@ -53,16 +53,16 @@ export const ChefsRecommendations: React.FC<ChefsRecommendationsProps> = ({
           transition={{ duration: 0.6 }}
           className="text-center space-y-3 mb-10"
         >
-          <span className="font-heading text-xs font-bold text-[#D4AF37] tracking-[0.25em] uppercase block">
+          <span className="font-heading text-xs font-bold text-[#B8A678] tracking-[0.25em] uppercase block">
             FINEST SELECTION
           </span>
-          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-[#111111] uppercase tracking-tight">
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-normal text-[#2D3A1F] uppercase tracking-tight">
             CHEF'S RECOMMENDATIONS
           </h2>
           <div className="flex items-center justify-center gap-3">
-            <div className="w-12 h-px bg-neutral-300"></div>
-            <Utensils className="w-4 h-4 text-[#D4AF37]" />
-            <div className="w-12 h-px bg-neutral-300"></div>
+            <div className="w-12 h-px bg-[#CDD2C9]"></div>
+            <Restaurant01Icon size={18} className="text-[#B8A678]" />
+            <div className="w-12 h-px bg-[#CDD2C9]"></div>
           </div>
         </motion.div>
 
@@ -80,10 +80,10 @@ export const ChefsRecommendations: React.FC<ChefsRecommendationsProps> = ({
               <button
                 key={cat.value}
                 onClick={() => handleCategoryChange(cat.value)}
-                className={`font-heading text-xs md:text-sm font-semibold tracking-wider uppercase px-5 py-2.5 rounded-full transition-all cursor-pointer ${
+                className={`font-heading text-xs md:text-sm font-bold tracking-wider uppercase px-5 py-2.5 rounded-full transition-all cursor-pointer ${
                   isActive
-                    ? 'bg-[#FF5B3E] text-white shadow-md shadow-[#FF5B3E]/20 scale-105'
-                    : 'bg-white text-neutral-700 hover:bg-neutral-100 border border-neutral-200 hover:border-neutral-300'
+                    ? 'bg-[#2D3A1F] text-[#F4F1E8] shadow-md scale-105'
+                    : 'bg-[#F4F1E8] text-[#2D3A1F] hover:bg-[#E8E2D0] border border-[#CDD2C9]'
                 }`}
               >
                 {cat.label}
@@ -96,14 +96,14 @@ export const ChefsRecommendations: React.FC<ChefsRecommendationsProps> = ({
         {loading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 animate-pulse">
             {[...Array(4)].map((_, i) => (
-              <div key={i} className="bg-white rounded-2xl overflow-hidden border border-neutral-200/80 p-4 space-y-4 shadow-sm">
-                <div className="w-full h-48 bg-neutral-200 rounded-xl"></div>
-                <div className="h-5 bg-neutral-200 rounded w-3/4"></div>
-                <div className="h-3 bg-neutral-200 rounded w-full"></div>
-                <div className="h-3 bg-neutral-200 rounded w-2/3"></div>
+              <div key={i} className="bg-[#F4F1E8] rounded-2xl overflow-hidden border border-[#CDD2C9] p-4 space-y-4 shadow-sm">
+                <div className="w-full h-48 bg-[#CDD2C9]/50 rounded-xl"></div>
+                <div className="h-5 bg-[#CDD2C9]/50 rounded w-3/4"></div>
+                <div className="h-3 bg-[#CDD2C9]/50 rounded w-full"></div>
+                <div className="h-3 bg-[#CDD2C9]/50 rounded w-2/3"></div>
                 <div className="flex justify-between items-center pt-2">
-                  <div className="h-6 bg-neutral-200 rounded w-16"></div>
-                  <div className="h-8 bg-neutral-200 rounded-lg w-24"></div>
+                  <div className="h-6 bg-[#CDD2C9]/50 rounded w-16"></div>
+                  <div className="h-8 bg-[#CDD2C9]/50 rounded-lg w-24"></div>
                 </div>
               </div>
             ))}
@@ -117,11 +117,11 @@ export const ChefsRecommendations: React.FC<ChefsRecommendationsProps> = ({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-neutral-200/80 hover:border-[#D4AF37]/50 flex flex-col justify-between group"
+                className="bg-[#F4F1E8] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-[#CDD2C9] hover:border-[#B8A678] flex flex-col justify-between group"
               >
                 <div>
                   {/* Image Container with Badge */}
-                  <div className="relative h-48 sm:h-52 overflow-hidden bg-neutral-100">
+                  <div className="relative h-48 sm:h-52 overflow-hidden bg-[#2D3A1F]/10">
                     <img
                       src={dish.image}
                       alt={dish.name}
@@ -131,13 +131,7 @@ export const ChefsRecommendations: React.FC<ChefsRecommendationsProps> = ({
                     
                     {dish.badge && (
                       <span
-                        className={`absolute top-3 left-3 text-[11px] font-heading font-bold uppercase px-3 py-1 rounded-md shadow-sm ${
-                          dish.badge === 'Bestseller'
-                            ? 'bg-[#D4AF37] text-white'
-                            : dish.badge === 'New'
-                            ? 'bg-[#FF5B3E] text-white'
-                            : 'bg-[#111111] text-white'
-                        }`}
+                        className="absolute top-3 left-3 text-[11px] font-heading font-bold uppercase px-3 py-1 rounded-full shadow-sm bg-[#2D3A1F] text-[#F4F1E8] border border-[#B8A678]/50"
                       >
                         {dish.badge}
                       </span>
@@ -146,49 +140,49 @@ export const ChefsRecommendations: React.FC<ChefsRecommendationsProps> = ({
                     {/* Quick View Button Overlay */}
                     <button
                       onClick={() => onOpenDishModal(dish)}
-                      className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white font-heading font-semibold text-xs tracking-wider uppercase bg-black/60 backdrop-blur-xs cursor-pointer"
+                      className="absolute inset-0 bg-[#2D3A1F]/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-[#F4F1E8] font-heading font-semibold text-xs tracking-wider uppercase backdrop-blur-xs cursor-pointer"
                     >
-                      <Eye className="w-4 h-4" /> Quick View
+                      <ViewIcon size={16} /> Quick View
                     </button>
                   </div>
 
                   {/* Content */}
                   <div className="p-5 space-y-2">
                     <div className="flex items-center justify-between">
-                      <h3 className="font-heading text-lg font-bold text-[#111111] group-hover:text-[#FF5B3E] transition-colors line-clamp-1">
+                      <h3 className="font-heading text-lg font-bold text-[#2D3A1F] group-hover:text-[#B8A678] transition-colors line-clamp-1">
                         {dish.name}
                       </h3>
                     </div>
 
                     {/* Short, clear description */}
-                    <p className="text-xs text-neutral-600 line-clamp-2 leading-relaxed">
+                    <p className="text-xs text-[#2D3A1F]/70 line-clamp-2 leading-relaxed font-light">
                       {dish.description}
                     </p>
 
                     {/* Rating & Reviews */}
-                    <div className="flex items-center gap-1 text-xs text-neutral-600 pt-1">
-                      <div className="flex items-center text-[#FFD84D]">
+                    <div className="flex items-center gap-1 text-xs text-[#2D3A1F]/70 pt-1">
+                      <div className="flex items-center text-[#B8A678]">
                         {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                          <StarIcon key={i} size={14} className="fill-current" />
                         ))}
                       </div>
-                      <span className="font-bold text-neutral-800 ml-1">({dish.rating})</span>
-                      <span className="text-neutral-400">({dish.reviewsCount})</span>
+                      <span className="font-bold text-[#2D3A1F] ml-1">({dish.rating})</span>
+                      <span className="text-[#2D3A1F]/50">({dish.reviewsCount})</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Price & Add To Order */}
-                <div className="p-5 pt-0 border-t border-neutral-100 mt-2 flex items-center justify-between">
-                  <span className="font-heading font-bold text-xl text-[#FF5B3E]">
+                <div className="p-5 pt-0 border-t border-[#CDD2C9]/60 mt-2 flex items-center justify-between">
+                  <span className="font-heading font-bold text-xl text-[#2D3A1F]">
                     ${dish.price.toFixed(2)}
                   </span>
 
                   <button
                     onClick={() => onAddToCart(dish)}
-                    className="inline-flex items-center gap-1.5 bg-[#111111] hover:bg-[#FF5B3E] text-white font-heading text-xs font-semibold px-4 py-2.5 rounded-lg transition-colors cursor-pointer shadow-sm hover:shadow-md"
+                    className="inline-flex items-center gap-1.5 bg-[#2D3A1F] hover:bg-[#B8A678] text-[#F4F1E8] hover:text-[#2D3A1F] font-heading text-xs font-bold px-4 py-2.5 rounded-full transition-colors cursor-pointer shadow-sm"
                   >
-                    <Plus className="w-3.5 h-3.5" />
+                    <Add01Icon size={14} />
                     <span>Add To Order</span>
                   </button>
                 </div>
@@ -201,4 +195,5 @@ export const ChefsRecommendations: React.FC<ChefsRecommendationsProps> = ({
     </section>
   );
 };
+
 

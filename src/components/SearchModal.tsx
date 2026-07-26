@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MENU_ITEMS } from '../data/restaurantData';
 import { MenuItem } from '../types';
-import { Search, X, Star, Plus } from 'lucide-react';
+import { Search01Icon, Cancel01Icon, StarIcon, Add01Icon } from 'hugeicons-react';
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -31,40 +31,40 @@ export const SearchModal: React.FC<SearchModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-start justify-center pt-20 p-4 animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 bg-[#2D3A1F]/80 backdrop-blur-sm flex items-start justify-center pt-20 p-4 animate-in fade-in duration-200 select-none"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-2xl bg-white rounded-3xl overflow-hidden shadow-2xl border border-neutral-200 p-6 space-y-6"
+        className="relative w-full max-w-2xl bg-[#F4F1E8] text-[#2D3A1F] rounded-3xl overflow-hidden shadow-2xl border border-[#CDD2C9] p-6 space-y-6"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center gap-3 border-b border-neutral-200 pb-4">
-          <Search className="w-5 h-5 text-neutral-400" />
+        <div className="flex items-center gap-3 border-b border-[#CDD2C9] pb-4">
+          <Search01Icon size={20} className="text-[#2D3A1F]/50" />
           <input
             type="text"
             autoFocus
             placeholder="Search dishes (e.g. Salmon, Tiramisu, Pizza, Risotto)..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="flex-1 bg-transparent text-sm md:text-base text-[#111111] placeholder-neutral-400 focus:outline-none"
+            className="flex-1 bg-transparent text-sm md:text-base text-[#2D3A1F] placeholder-[#2D3A1F]/40 focus:outline-none"
           />
           <button
             onClick={onClose}
-            className="p-1.5 rounded-full hover:bg-neutral-100 text-neutral-500 hover:text-[#111111]"
+            className="p-1.5 rounded-full hover:bg-[#E8E2D0] text-[#2D3A1F]/70 hover:text-[#2D3A1F] transition-colors cursor-pointer"
           >
-            <X className="w-5 h-5" />
+            <Cancel01Icon size={20} />
           </button>
         </div>
 
         {/* Results */}
         <div className="space-y-3 max-h-96 overflow-y-auto pr-1">
-          <div className="text-xs font-heading font-bold uppercase text-neutral-400 tracking-wider">
+          <div className="text-xs font-heading font-bold uppercase text-[#2D3A1F]/60 tracking-wider">
             {query.trim() === '' ? 'Popular Menu Recommendations' : `Found ${filtered.length} Dishes`}
           </div>
 
           {filtered.length === 0 ? (
-            <p className="text-xs text-neutral-500 py-6 text-center">No dishes found matching "{query}".</p>
+            <p className="text-xs text-[#2D3A1F]/60 py-6 text-center font-light">No dishes found matching "{query}".</p>
           ) : (
             filtered.map((dish) => (
               <div
@@ -73,7 +73,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                   onSelectDish(dish);
                   onClose();
                 }}
-                className="flex items-center justify-between p-3 rounded-2xl hover:bg-[#FCFAF7] border border-transparent hover:border-neutral-200 transition-all cursor-pointer group"
+                className="flex items-center justify-between p-3 rounded-2xl bg-[#E8E2D0] hover:bg-[#E8E2D0]/80 border border-[#CDD2C9] transition-all cursor-pointer group"
               >
                 <div className="flex items-center gap-3">
                   <img
@@ -83,18 +83,18 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                     referrerPolicy="no-referrer"
                   />
                   <div>
-                    <h4 className="font-heading font-bold text-sm text-[#111111] group-hover:text-[#FF5B3E] transition-colors">
+                    <h4 className="font-heading font-bold text-sm text-[#2D3A1F] group-hover:text-[#B8A678] transition-colors">
                       {dish.name}
                     </h4>
-                    <p className="text-xs text-neutral-500 line-clamp-1">{dish.description}</p>
-                    <div className="flex items-center gap-1 text-[11px] text-[#FFD84D] mt-0.5">
-                      <Star className="w-3 h-3 fill-current" /> <span className="font-bold text-neutral-700">{dish.rating}</span>
+                    <p className="text-xs text-[#2D3A1F]/70 line-clamp-1 font-light">{dish.description}</p>
+                    <div className="flex items-center gap-1 text-[11px] text-[#B8A678] mt-0.5">
+                      <StarIcon size={12} className="fill-current" /> <span className="font-bold text-[#2D3A1F]">{dish.rating}</span>
                     </div>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <span className="font-heading font-bold text-sm text-[#FF5B3E]">
+                  <span className="font-heading font-bold text-sm text-[#2D3A1F]">
                     ${dish.price.toFixed(2)}
                   </span>
                   <button
@@ -102,9 +102,9 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                       e.stopPropagation();
                       onAddToCart(dish);
                     }}
-                    className="p-2 rounded-lg bg-[#111111] text-white hover:bg-[#FF5B3E] transition-colors"
+                    className="p-2 rounded-lg bg-[#2D3A1F] text-[#F4F1E8] hover:bg-[#B8A678] hover:text-[#2D3A1F] transition-colors cursor-pointer"
                   >
-                    <Plus className="w-4 h-4" />
+                    <Add01Icon size={16} />
                   </button>
                 </div>
               </div>
@@ -115,3 +115,4 @@ export const SearchModal: React.FC<SearchModalProps> = ({
     </div>
   );
 };
+

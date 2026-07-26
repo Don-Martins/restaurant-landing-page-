@@ -1,6 +1,6 @@
 import React from 'react';
 import { MENU_CATEGORIES } from '../data/restaurantData';
-import { Sparkles, ArrowRight } from 'lucide-react';
+import { Restaurant01Icon, ArrowRight01Icon } from 'hugeicons-react';
 import { motion } from 'motion/react';
 
 interface MenuCategoriesProps {
@@ -13,8 +13,8 @@ export const MenuCategories: React.FC<MenuCategoriesProps> = ({
   onSelectCategory,
 }) => {
   return (
-    <section id="categories" className="py-16 md:py-24 bg-white border-b border-neutral-100 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
+    <section id="categories" className="py-16 md:py-24 bg-[#F4F1E8] border-b border-[#CDD2C9] overflow-hidden select-none">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
         
         {/* Section Header */}
         <motion.div 
@@ -24,16 +24,16 @@ export const MenuCategories: React.FC<MenuCategoriesProps> = ({
           transition={{ duration: 0.6 }}
           className="text-center space-y-3 mb-12 md:mb-16"
         >
-          <span className="font-heading text-xs font-bold text-[#D4AF37] tracking-[0.25em] uppercase block">
+          <span className="font-heading text-xs font-bold text-[#B8A678] tracking-[0.25em] uppercase block">
             EXPLORE FLAVORS
           </span>
-          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-[#111111] uppercase tracking-tight">
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-normal text-[#2D3A1F] uppercase tracking-tight">
             OUR MENU CATEGORIES
           </h2>
           <div className="flex items-center justify-center gap-3">
-            <div className="w-12 h-px bg-neutral-300"></div>
-            <Sparkles className="w-4 h-4 text-[#D4AF37]" />
-            <div className="w-12 h-px bg-neutral-300"></div>
+            <div className="w-12 h-px bg-[#CDD2C9]"></div>
+            <Restaurant01Icon size={20} className="text-[#B8A678]" />
+            <div className="w-12 h-px bg-[#CDD2C9]"></div>
           </div>
         </motion.div>
 
@@ -60,8 +60,8 @@ export const MenuCategories: React.FC<MenuCategoriesProps> = ({
                 <div
                   className={`relative w-28 h-28 sm:w-36 sm:h-36 rounded-full p-1.5 transition-all duration-300 ${
                     isSelected
-                      ? 'ring-4 ring-[#FF5B3E] ring-offset-4 shadow-xl scale-105'
-                      : 'hover:ring-2 hover:ring-[#D4AF37] hover:ring-offset-2 hover:scale-105 shadow-md'
+                      ? 'ring-4 ring-[#2D3A1F] ring-offset-4 ring-offset-[#F4F1E8] shadow-xl scale-105'
+                      : 'hover:ring-2 hover:ring-[#B8A678] hover:ring-offset-2 hover:scale-105 shadow-md'
                   }`}
                 >
                   <div className="w-full h-full rounded-full overflow-hidden relative">
@@ -75,7 +75,7 @@ export const MenuCategories: React.FC<MenuCategoriesProps> = ({
                   </div>
 
                   {/* Badge showing item count */}
-                  <span className="absolute bottom-1 right-1 bg-[#111111] text-white text-[10px] font-bold px-2 py-0.5 rounded-full border border-white">
+                  <span className="absolute bottom-1 right-1 bg-[#2D3A1F] text-[#F4F1E8] text-[10px] font-bold px-2 py-0.5 rounded-full border border-[#B8A678]/40">
                     {cat.itemCount} Items
                   </span>
                 </div>
@@ -84,13 +84,13 @@ export const MenuCategories: React.FC<MenuCategoriesProps> = ({
                 <div className="space-y-0.5">
                   <h3
                     className={`font-heading text-base font-bold transition-colors ${
-                      isSelected ? 'text-[#FF5B3E]' : 'text-[#111111] group-hover:text-[#D4AF37]'
+                      isSelected ? 'text-[#2D3A1F]' : 'text-[#2D3A1F]/80 group-hover:text-[#B8A678]'
                     }`}
                   >
                     {cat.name}
                   </h3>
-                  <span className="text-xs text-neutral-400 font-medium flex items-center justify-center gap-1 group-hover:text-[#FF5B3E] transition-colors">
-                    Explore <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                  <span className="text-xs text-[#2D3A1F]/60 font-medium flex items-center justify-center gap-1 group-hover:text-[#2D3A1F] transition-colors">
+                    Explore <ArrowRight01Icon size={14} className="group-hover:translate-x-1 transition-transform" />
                   </span>
                 </div>
               </motion.button>
@@ -102,4 +102,5 @@ export const MenuCategories: React.FC<MenuCategoriesProps> = ({
     </section>
   );
 };
+
 

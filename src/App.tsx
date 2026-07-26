@@ -16,6 +16,7 @@ import { SpecialOffers } from './components/SpecialOffers';
 import { ReservationSection } from './components/ReservationSection';
 import { FAQSection } from './components/FAQSection';
 import { Footer } from './components/Footer';
+import { BackToTop } from './components/BackToTop';
 import { ReservationModal } from './components/ReservationModal';
 import { DishDetailModal } from './components/DishDetailModal';
 import { CartDrawer } from './components/CartDrawer';
@@ -83,7 +84,9 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-[#111111] font-sans antialiased pb-16 lg:pb-0">
+    <div className="min-h-screen bg-[#F4F1E8] text-[#2D3A1F] font-sans antialiased pb-16 lg:pb-0 relative">
+      {/* Back To Top Button */}
+      <BackToTop />
       {/* Navigation Header */}
       <Header
         cart={cart}

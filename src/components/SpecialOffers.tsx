@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SPECIAL_OFFERS } from '../data/restaurantData';
 import { MenuItem } from '../types';
-import { Clock, ShoppingBag, Check } from 'lucide-react';
+import { Clock01Icon, ShoppingBag01Icon, Tick01Icon } from 'hugeicons-react';
 import { motion } from 'motion/react';
 
 interface SpecialOffersProps {
@@ -41,8 +41,8 @@ export const SpecialOffers: React.FC<SpecialOffersProps> = ({ onAddToCart }) => 
   };
 
   return (
-    <section id="special-offers" className="py-20 md:py-28 bg-[#FFD84D]/15 border-b border-[#FFD84D]/30 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+    <section id="special-offers" className="py-20 md:py-28 bg-[#F4F1E8] border-b border-[#CDD2C9] relative overflow-hidden select-none">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
         {/* Section Header */}
         <motion.div 
@@ -52,10 +52,10 @@ export const SpecialOffers: React.FC<SpecialOffersProps> = ({ onAddToCart }) => 
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto space-y-4 mb-16"
         >
-          <h2 className="font-heading text-3xl md:text-5xl font-bold text-[#111111] tracking-tight">
+          <h2 className="font-heading text-3xl md:text-5xl font-normal text-[#2D3A1F] tracking-tight">
             Exclusive Dining Offers
           </h2>
-          <p className="font-sans text-neutral-700 text-base md:text-lg">
+          <p className="font-sans text-[#2D3A1F]/80 text-base md:text-lg font-light">
             Enjoy premium culinary experiences with exceptional promotional packages for lunches, date nights, and family feasts.
           </p>
         </motion.div>
@@ -73,67 +73,67 @@ export const SpecialOffers: React.FC<SpecialOffersProps> = ({ onAddToCart }) => 
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.12 }}
-                className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-[#FFD84D] group flex flex-col justify-between transform hover:-translate-y-2"
+                className="bg-[#E8E2D0] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-[#B8A678] group flex flex-col justify-between transform hover:-translate-y-2"
               >
                 <div>
                   {/* Offer Image Header with Discount Tag */}
-                  <div className="relative h-52 overflow-hidden">
+                  <div className="relative h-52 overflow-hidden bg-[#2D3A1F]">
                     <img
                       src={offer.image}
                       alt={offer.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       referrerPolicy="no-referrer"
                     />
-                    <div className="absolute inset-0 bg-black/40"></div>
+                    <div className="absolute inset-0 bg-[#2D3A1F]/40"></div>
 
                     {/* Discount Badge */}
-                    <div className="absolute top-4 left-4 bg-[#FF5B3E] text-white font-heading font-black text-xs px-3.5 py-1.5 rounded-xl shadow-md uppercase tracking-wider">
+                    <div className="absolute top-4 left-4 bg-[#2D3A1F] text-[#F4F1E8] font-heading font-black text-xs px-3.5 py-1.5 rounded-xl shadow-md uppercase tracking-wider border border-[#B8A678]/40">
                       {offer.discount}
                     </div>
 
-                    <div className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-xs text-[#111111] text-[11px] font-bold px-2.5 py-1 rounded-md flex items-center gap-1 shadow-sm">
-                      <Clock className="w-3 h-3 text-[#FF5B3E]" /> {offer.validUntil}
+                    <div className="absolute bottom-3 right-3 bg-[#F4F1E8]/90 backdrop-blur-xs text-[#2D3A1F] text-[11px] font-bold px-2.5 py-1 rounded-md flex items-center gap-1 shadow-sm border border-[#CDD2C9]">
+                      <Clock01Icon size={14} className="text-[#B8A678]" /> {offer.validUntil}
                     </div>
                   </div>
 
                   {/* Offer Content */}
                   <div className="p-6 space-y-3">
                     <div className="flex justify-between items-start">
-                      <span className="text-xs font-heading font-bold text-[#D4AF37] uppercase tracking-wider block">
+                      <span className="text-xs font-heading font-bold text-[#B8A678] uppercase tracking-wider block">
                         {offer.subtitle}
                       </span>
-                      <span className="font-heading font-extrabold text-lg text-[#FF5B3E]">
+                      <span className="font-heading font-extrabold text-lg text-[#2D3A1F]">
                         ${price.toFixed(2)}
                       </span>
                     </div>
 
-                    <h3 className="font-serif text-2xl font-bold text-[#111111] group-hover:text-[#FF5B3E] transition-colors">
+                    <h3 className="font-heading text-2xl font-bold text-[#2D3A1F] group-hover:text-[#B8A678] transition-colors">
                       {offer.title}
                     </h3>
 
-                    <p className="font-sans text-sm text-neutral-600 leading-relaxed">
+                    <p className="font-sans text-sm text-[#2D3A1F]/80 leading-relaxed font-light">
                       {offer.description}
                     </p>
                   </div>
                 </div>
 
                 {/* Add To Cart Action Button */}
-                <div className="p-6 pt-0 border-t border-neutral-100 mt-2">
+                <div className="p-6 pt-0 border-t border-[#CDD2C9]/60 mt-2">
                   <button
                     onClick={() => handleAddOfferToCart(offer)}
-                    className={`w-full font-heading font-semibold text-xs uppercase tracking-wider py-3.5 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-md ${
+                    className={`w-full font-heading font-bold text-xs uppercase tracking-wider py-3.5 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-md ${
                       isAdded
-                        ? 'bg-emerald-600 text-white'
-                        : 'bg-[#111111] hover:bg-[#FF5B3E] text-white active:scale-95'
+                        ? 'bg-[#2D3A1F] text-[#F4F1E8]'
+                        : 'bg-[#2D3A1F] hover:bg-[#B8A678] text-[#F4F1E8] hover:text-[#2D3A1F] active:scale-95'
                     }`}
                   >
                     {isAdded ? (
                       <>
-                        <Check className="w-4 h-4" /> Added To Cart!
+                        <Tick01Icon size={16} /> Added To Cart!
                       </>
                     ) : (
                       <>
-                        <ShoppingBag className="w-4 h-4" /> Add To Cart (${price.toFixed(2)})
+                        <ShoppingBag01Icon size={16} /> Add To Cart (${price.toFixed(2)})
                       </>
                     )}
                   </button>
@@ -148,4 +148,5 @@ export const SpecialOffers: React.FC<SpecialOffersProps> = ({ onAddToCart }) => 
     </section>
   );
 };
+
 

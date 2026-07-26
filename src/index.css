@@ -2,9 +2,9 @@
 
 @layer base {
   :root {
-    --font-heading: 'Space Grotesk', sans-serif;
-    --font-sans: 'DM Sans', sans-serif;
-    --font-serif: 'Cormorant Garamond', serif;
+    --font-heading: 'Fraunces', serif;
+    --font-sans: 'Sora', sans-serif;
+    --font-serif: 'Fraunces', serif;
   }
 }
 
@@ -25,12 +25,12 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #E8E2D0;
 }
 ::-webkit-scrollbar-thumb {
-  background: #d4af37;
+  background: #B8A678;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #ff5b3e;
+  background: #2D3A1F;
 }

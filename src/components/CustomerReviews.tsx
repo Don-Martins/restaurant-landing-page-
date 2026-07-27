@@ -1,19 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { REVIEWS } from '../data/restaurantData';
 import { StarIcon, QuoteUpIcon, ArrowLeft01Icon, ArrowRight01Icon } from 'hugeicons-react';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 
 export const CustomerReviews: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Auto slider timer (changes slide every 4 seconds if not hovered)
+  // Auto slider timer (changes slide every 4.5 seconds)
   useEffect(() => {
     if (!isHovered) {
       autoPlayRef.current = setInterval(() => {
         setCurrentIndex((prev) => (prev + 1) % REVIEWS.length);
-      }, 4000);
+      }, 4500);
     }
     return () => {
       if (autoPlayRef.current) clearInterval(autoPlayRef.current);
@@ -33,9 +33,12 @@ export const CustomerReviews: React.FC = () => {
   return (
     <section
       id="testimonials"
-      className="py-20 md:py-28 bg-[#F4F1E8] border-b border-[#CDD2C9] overflow-hidden select-none"
+      className="py-20 md:py-28 bg-[#131B0E] text-[#F4F1E8] border-b border-[#2A3B22] overflow-hidden select-none relative"
     >
-      <div className="max-w-5xl mx-auto px-6 md:px-12">
+      {/* Background Subtle Gradient Glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(184,166,120,0.08)_0%,_transparent_70%)] pointer-events-none"></div>
+
+      <div className="max-w-5xl mx-auto px-6 md:px-12 relative z-10">
         
         {/* Section Header */}
         <motion.div 
@@ -43,102 +46,120 @@ export const CustomerReviews: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto space-y-3 mb-12"
+          className="text-center max-w-2xl mx-auto space-y-3 mb-16"
         >
-          <h2 className="font-heading text-3xl md:text-5xl font-normal text-[#2D3A1F] tracking-tight">
-            Loved By Thousands of Diners
+          <span className="font-heading text-xs font-bold text-[#B8A678] tracking-[0.25em] uppercase block">
+            GUEST EXPERIENCES
+          </span>
+          <h2 className="font-heading text-3xl md:text-5xl font-normal text-[#F4F1E8] tracking-tight">
+            What Our Guests Say
           </h2>
-          <p className="font-sans text-[#2D3A1F]/80 text-base md:text-lg font-light">
-            Read genuine experiences from food critics, families, couples, and regulars who make our restaurant their culinary home.
+          <p className="font-sans text-[#CDD2C9]/80 text-base md:text-lg font-light">
+            Real stories from people who have shared memorable dining moments with us.
           </p>
         </motion.div>
 
-        {/* Automatic Slider Showcase Container */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="relative bg-[#E8E2D0] rounded-3xl p-8 sm:p-12 shadow-xl border border-[#CDD2C9] transition-all duration-500 min-h-[340px] flex flex-col justify-between hover:border-[#B8A678]"
+        {/* Unique Dark Modern Automatic Slider Container */}
+        <div
+          className="relative bg-[#1E2B18] rounded-3xl p-8 sm:p-14 shadow-2xl border border-[#B8A678]/20 transition-all duration-500 min-h-[360px] flex flex-col justify-between group overflow-hidden"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          {/* Watermark Quote Background */}
-          <QuoteUpIcon size={80} className="absolute top-6 right-8 text-[#2D3A1F]/10 pointer-events-none" />
-
-          {/* Active Testimonial Card Content with Key-based Fade Transition */}
-          <div key={currentReview.id} className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500 relative z-10">
-            {/* Star Rating */}
-            <div className="flex items-center text-[#B8A678] gap-1">
-              {[...Array(currentReview.rating)].map((_, i) => (
-                <StarIcon key={i} size={20} className="fill-current" />
-              ))}
-              <span className="text-xs font-bold text-[#2D3A1F] ml-2 bg-[#F4F1E8] px-3 py-1 rounded-full border border-[#CDD2C9]">
-                5.0 Perfect Score
-              </span>
-            </div>
-
-            {/* Comment Body */}
-            <p className="font-heading italic text-lg sm:text-2xl text-[#2D3A1F] leading-relaxed">
-              "{currentReview.comment}"
-            </p>
-
-            {/* Author Profile */}
-            <div className="pt-6 border-t border-[#CDD2C9]/60 flex items-center gap-4">
-              <img
-                src={currentReview.avatar}
-                alt={currentReview.customerName}
-                className="w-14 h-14 rounded-full object-cover border-2 border-[#B8A678] shadow-md"
-                referrerPolicy="no-referrer"
+          {/* Animated Auto-Slide Progress Bar at Top */}
+          <div className="absolute top-0 left-0 right-0 h-1 bg-white/5">
+            {!isHovered && (
+              <motion.div
+                key={currentIndex}
+                initial={{ width: '0%' }}
+                animate={{ width: '100%' }}
+                transition={{ duration: 4.5, ease: 'linear' }}
+                className="h-full bg-[#B8A678]"
               />
-              <div>
-                <h4 className="font-heading font-bold text-base text-[#2D3A1F]">
-                  {currentReview.customerName}
-                </h4>
-                <span className="text-xs text-[#2D3A1F]/70 font-medium block">
-                  {currentReview.customerRole}
-                </span>
-              </div>
-            </div>
+            )}
           </div>
 
+          {/* Watermark Quote Icon */}
+          <QuoteUpIcon size={110} className="absolute -top-4 -right-4 text-[#B8A678]/10 pointer-events-none" />
+
+          {/* Active Testimonial Card with AnimatePresence */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentReview.id}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.4 }}
+              className="space-y-6 relative z-10"
+            >
+              {/* Star Rating */}
+              <div className="flex items-center gap-1.5 text-[#B8A678]">
+                {[...Array(currentReview.rating)].map((_, i) => (
+                  <StarIcon key={i} size={18} className="fill-current" />
+                ))}
+              </div>
+
+              {/* Comment Body */}
+              <p className="font-heading italic text-xl sm:text-2xl md:text-3xl text-[#F4F1E8] leading-relaxed font-light">
+                "{currentReview.comment}"
+              </p>
+
+              {/* Author Info */}
+              <div className="pt-6 border-t border-[#CDD2C9]/15 flex items-center gap-4">
+                <img
+                  src={currentReview.avatar}
+                  alt={currentReview.customerName}
+                  className="w-14 h-14 rounded-full object-cover border-2 border-[#B8A678] shadow-md"
+                  referrerPolicy="no-referrer"
+                />
+                <div>
+                  <h4 className="font-heading font-bold text-lg text-[#F4F1E8]">
+                    {currentReview.customerName}
+                  </h4>
+                  <span className="text-xs text-[#B8A678] font-medium block">
+                    {currentReview.customerRole}
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
           {/* Slider Controls Bar */}
-          <div className="mt-8 pt-6 border-t border-[#CDD2C9]/60 flex items-center justify-between relative z-10">
+          <div className="mt-10 pt-6 border-t border-[#CDD2C9]/15 flex items-center justify-between relative z-10">
             
-            {/* Dot Indicators */}
+            {/* Custom Dot Indicators */}
             <div className="flex items-center gap-2">
               {REVIEWS.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => setCurrentIndex(idx)}
-                  className={`h-2.5 rounded-full transition-all cursor-pointer ${
-                    currentIndex === idx ? 'w-8 bg-[#2D3A1F]' : 'w-2.5 bg-[#CDD2C9] hover:bg-[#B8A678]'
+                  className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                    currentIndex === idx ? 'w-8 bg-[#B8A678]' : 'w-2 bg-[#CDD2C9]/30 hover:bg-[#B8A678]/60'
                   }`}
-                  aria-label={`Go to slide ${idx + 1}`}
+                  aria-label={`Go to review ${idx + 1}`}
                 />
               ))}
             </div>
 
-            {/* Arrow Navigation Buttons */}
+            {/* Navigation Arrows */}
             <div className="flex items-center gap-3">
               <button
                 onClick={handlePrev}
-                className="w-10 h-10 rounded-full bg-[#F4F1E8] shadow-md border border-[#CDD2C9] flex items-center justify-center text-[#2D3A1F] hover:bg-[#2D3A1F] hover:text-[#F4F1E8] transition-all cursor-pointer hover:scale-110"
+                className="w-11 h-11 rounded-full bg-[#131B0E] border border-[#B8A678]/30 flex items-center justify-center text-[#F4F1E8] hover:bg-[#B8A678] hover:text-[#131B0E] transition-all cursor-pointer hover:scale-105"
                 aria-label="Previous Review"
               >
-                <ArrowLeft01Icon size={20} />
+                <ArrowLeft01Icon size={18} />
               </button>
               <button
                 onClick={handleNext}
-                className="w-10 h-10 rounded-full bg-[#F4F1E8] shadow-md border border-[#CDD2C9] flex items-center justify-center text-[#2D3A1F] hover:bg-[#2D3A1F] hover:text-[#F4F1E8] transition-all cursor-pointer hover:scale-110"
+                className="w-11 h-11 rounded-full bg-[#131B0E] border border-[#B8A678]/30 flex items-center justify-center text-[#F4F1E8] hover:bg-[#B8A678] hover:text-[#131B0E] transition-all cursor-pointer hover:scale-105"
                 aria-label="Next Review"
               >
-                <ArrowRight01Icon size={20} />
+                <ArrowRight01Icon size={18} />
               </button>
             </div>
 
           </div>
-        </motion.div>
+        </div>
 
       </div>
     </section>

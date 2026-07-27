@@ -3,16 +3,12 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { MenuCategories } from './components/MenuCategories';
 import { ChefsRecommendations } from './components/ChefsRecommendations';
-import { SpecialOfferBanner } from './components/SpecialOfferBanner';
-import { TrustFeatures } from './components/TrustFeatures';
-import { WhyChooseUs } from './components/WhyChooseUs';
 import { RestaurantExperience } from './components/RestaurantExperience';
 import { ServicesSection } from './components/ServicesSection';
 import { MeetChefs } from './components/MeetChefs';
 import { HowItWorks } from './components/HowItWorks';
 import { CustomerReviews } from './components/CustomerReviews';
 import { GallerySection } from './components/GallerySection';
-import { SpecialOffers } from './components/SpecialOffers';
 import { ReservationSection } from './components/ReservationSection';
 import { FAQSection } from './components/FAQSection';
 import { Footer } from './components/Footer';
@@ -118,22 +114,13 @@ export default function App() {
           onOpenDishModal={(dish) => setActiveDishModal(dish)}
         />
 
-        {/* Special Offer High-Contrast Banner */}
-        <SpecialOfferBanner
-          onOpenReservation={() => setReservationModalOpen(true)}
-          onExploreMenu={scrollToMenu}
-        />
-
-        {/* Trust & Quality Bar */}
-        <TrustFeatures />
-
-        {/* 4. Why People Love Dining Here (6 Large Icon Cards) */}
-        <WhyChooseUs />
-
-        {/* 5. Restaurant Experience (Editorial Split Layout) */}
+        {/* 4. Restaurant Experience (About Us - Stacked Cards) */}
         <RestaurantExperience
           onOpenReservation={() => setReservationModalOpen(true)}
         />
+
+        {/* 5. How It Works (Simple Steps) */}
+        <HowItWorks />
 
         {/* 6. Our Services (Dine-in, Takeaway, Delivery, Events, Catering) */}
         <ServicesSection
@@ -144,26 +131,18 @@ export default function App() {
         {/* 7. Meet Our Master Chefs */}
         <MeetChefs />
 
-        {/* 8. How It Works (4 Step Dining Journey) */}
-        <HowItWorks />
-
-        {/* 9. Customer Reviews & Guest Testimonials */}
+        {/* 8. Customer Reviews & Guest Testimonials */}
         <CustomerReviews />
 
-        {/* 10. Photo Gallery */}
+        {/* 9. Photo Gallery */}
         <GallerySection />
 
-        {/* 11. Special Promotional Packages */}
-        <SpecialOffers
-          onAddToCart={(dish) => handleAddToCart(dish, 1)}
-        />
-
-        {/* 12. Main Interactive Table Reservation CTA */}
+        {/* 10. Main Interactive Contact & Table Reservation */}
         <ReservationSection
           onSuccessReservation={handleReservationSuccess}
         />
 
-        {/* 13. FAQ Accordion */}
+        {/* 11. FAQ Accordion */}
         <FAQSection />
       </main>
 

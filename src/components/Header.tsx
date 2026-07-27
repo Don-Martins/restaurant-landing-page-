@@ -62,7 +62,7 @@ export const Header: React.FC<HeaderProps> = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 py-3 sm:py-4 px-4 sm:px-6 lg:px-8 font-sans pointer-events-none">
-      <div className={`max-w-7xl mx-auto w-full pointer-events-auto rounded-full border border-[#CDD2C9]/80 shadow-xl px-5 sm:px-8 py-2.5 sm:py-3 flex items-center justify-between ${
+      <div className={`max-w-7xl mx-auto w-full pointer-events-auto rounded-full shadow-xl px-5 sm:px-8 py-2.5 sm:py-3 flex items-center justify-between ${
         scrolled ? 'bg-[#F4F1E8]/98 backdrop-blur-md shadow-2xl' : 'bg-[#F4F1E8]/90 backdrop-blur-sm'
       }`}>
         
@@ -77,15 +77,15 @@ export const Header: React.FC<HeaderProps> = () => {
 
         {/* Navigation Links on the RIGHT */}
         <div className="flex items-center gap-3 sm:gap-6">
-          {/* Desktop Navigation Links (No border around navlinks, clean background) */}
-          <nav className="hidden md:flex items-center gap-1 bg-[#E8E2D0]/60 p-1 rounded-full">
+          {/* Desktop Navigation Links (Clean layout without background box) */}
+          <nav className="hidden md:flex items-center gap-2 sm:gap-4">
             {navItems.map((item) => {
               const isActive = activeTab === item.tab;
               return (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id, item.tab)}
-                  className={`px-6 py-2 rounded-full font-heading text-xs uppercase tracking-widest font-bold cursor-pointer ${
+                  className={`px-5 py-2 rounded-full font-heading text-xs uppercase tracking-widest font-bold cursor-pointer transition-colors ${
                     isActive
                       ? 'bg-[#2D3A1F] text-[#F4F1E8]'
                       : 'text-[#2D3A1F] hover:bg-[#2D3A1F]/10'
@@ -110,7 +110,7 @@ export const Header: React.FC<HeaderProps> = () => {
 
       {/* Mobile Menu Dropdown Drawer */}
       {mobileMenuOpen && (
-        <div className="pointer-events-auto mt-2 max-w-7xl mx-auto bg-[#F4F1E8] rounded-2xl border border-[#CDD2C9] shadow-2xl p-5 space-y-2 font-heading text-xs font-bold uppercase tracking-wider text-[#2D3A1F]">
+        <div className="pointer-events-auto mt-2 max-w-7xl mx-auto bg-[#F4F1E8] rounded-2xl shadow-2xl p-5 space-y-2 font-heading text-xs font-bold uppercase tracking-wider text-[#2D3A1F]">
           {navItems.map((item) => (
             <button
               key={item.id}

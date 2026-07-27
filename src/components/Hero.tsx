@@ -11,9 +11,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenReservation, onExploreMenu }) 
   return (
     <section 
       id="hero" 
-      className="relative w-full min-h-screen pt-24 pb-16 flex items-center bg-[#131B0E] text-[#F4F1E8] overflow-hidden select-none"
+      className="relative w-full min-h-screen pt-40 sm:pt-48 md:pt-56 pb-24 md:pb-32 flex items-center bg-[#131B0E] text-[#F4F1E8] overflow-hidden select-none"
     >
-      {/* Decorative Natural Palm Leaves Accents */}
+      {/* Decorative Natural Palm Leaves Accents (Image 1 style) */}
       {/* Top Left Leaf */}
       <div className="absolute top-0 left-0 w-64 md:w-96 h-64 md:h-96 pointer-events-none opacity-40 z-10">
         <svg viewBox="0 0 200 200" className="w-full h-full text-[#3A4B29] fill-current">
@@ -51,18 +51,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenReservation, onExploreMenu }) 
             <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <button
                 onClick={onExploreMenu}
-                className="bg-[#B8A678] hover:bg-[#A39266] text-[#131B0E] font-heading font-bold text-sm tracking-widest uppercase px-8 py-4 rounded-md shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+                className="bg-[#B8A678] hover:bg-[#A39266] text-[#131B0E] font-heading font-bold text-sm tracking-widest uppercase px-8 py-4 rounded-md shadow-lg flex items-center justify-center gap-2 cursor-pointer transition-transform duration-300 hover:scale-105"
               >
                 <span>VIEW OUR MENU</span>
                 <ArrowRight01Icon size={18} />
-              </button>
-
-              <button
-                onClick={onOpenReservation}
-                className="border border-[#B8A678]/40 hover:border-[#B8A678] bg-white/5 hover:bg-white/10 text-[#F4F1E8] font-heading font-semibold text-sm tracking-widest uppercase px-7 py-4 rounded-md backdrop-blur-sm flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <span>BOOK A TABLE</span>
-                <Calendar01Icon size={18} />
               </button>
             </div>
 
@@ -78,32 +70,27 @@ export const Hero: React.FC<HeroProps> = ({ onOpenReservation, onExploreMenu }) 
             </div>
           </div>
 
-          {/* Right Plate Visual Area */}
+          {/* Right Plate Visual Area - Transparent & Seamless Floating Plate */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             className="lg:col-span-6 xl:col-span-6 flex justify-center lg:justify-end relative"
           >
-            {/* Seamless Blended Gourmet Plate Display */}
-            <div className="relative w-full max-w-[320px] sm:max-w-[420px] lg:max-w-[500px] aspect-square rounded-full p-2 bg-[#131B0E] flex items-center justify-center group mx-auto lg:mr-0">
+            <div className="relative w-full max-w-[320px] sm:max-w-[420px] lg:max-w-[460px] aspect-square flex items-center justify-center group mx-auto lg:mr-0">
               
-              {/* Soft Ambient Radial Background Glow */}
-              <div className="absolute inset-0 rounded-full bg-radial from-[#B8A678]/20 via-[#2A3B22]/40 to-transparent blur-xl pointer-events-none transform group-hover:scale-110 transition-transform duration-700"></div>
-
-              {/* Outer Decorative Gold Ring */}
-              <div className="absolute inset-2 rounded-full border border-[#B8A678]/30 border-dashed animate-spin-slow pointer-events-none"></div>
-
-              {/* Main Dish Image with Soft Edge Blend Vignette */}
-              <div className="relative w-full h-full rounded-full overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-[#B8A678]/20">
+              {/* Gourmet Dish Image - Perfectly Circular Seamless Float */}
+              <div className="relative w-full h-full rounded-full overflow-hidden drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
                 <img
                   src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80"
                   alt="Signature Gourmet Dish"
-                  className="w-full h-full object-cover rounded-full transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 rounded-full"
+                  style={{
+                    maskImage: 'radial-gradient(circle at center, black 58%, transparent 70%)',
+                    WebkitMaskImage: 'radial-gradient(circle at center, black 58%, transparent 70%)'
+                  }}
                   referrerPolicy="no-referrer"
                 />
-                {/* Radial Vignette Overlay for Seamless Dark Forest Green Edge Blending */}
-                <div className="absolute inset-0 rounded-full pointer-events-none ring-1 ring-inset ring-[#B8A678]/30 bg-[radial-gradient(circle_at_center,_transparent_50%,_rgba(19,27,14,0.6)_100%)]"></div>
               </div>
 
             </div>

@@ -18,7 +18,6 @@ import { DishDetailModal } from './components/DishDetailModal';
 import { CartDrawer } from './components/CartDrawer';
 import { SearchModal } from './components/SearchModal';
 import { MapModal } from './components/MapModal';
-import { MobileStickyBar } from './components/MobileStickyBar';
 import { CartItem, MenuItem, ReservationData } from './types';
 import { MENU_ITEMS } from './data/restaurantData';
 
@@ -80,7 +79,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F4F1E8] text-[#2D3A1F] font-sans antialiased pb-16 lg:pb-0 relative">
+    <div className="min-h-screen bg-[#F4F1E8] text-[#2D3A1F] font-sans antialiased relative w-full max-w-full overflow-x-hidden">
       {/* Back To Top Button */}
       <BackToTop />
       {/* Navigation Header */}
@@ -162,7 +161,7 @@ export default function App() {
       <DishDetailModal
         dish={activeDishModal}
         onClose={() => setActiveDishModal(null)}
-        onAddToCart={(dish, qty, notes) => handleAddToCart(dish, qty, notes)}
+        onAddToCart={(dish) => handleAddToCart(dish, 1)}
       />
 
       <CartDrawer
@@ -184,13 +183,6 @@ export default function App() {
       <MapModal
         isOpen={mapModalOpen}
         onClose={() => setMapModalOpen(false)}
-      />
-
-      {/* Mobile Bottom Sticky Bar */}
-      <MobileStickyBar
-        onOpenReservation={() => setReservationModalOpen(true)}
-        onOpenCart={() => setCartDrawerOpen(true)}
-        cartCount={cart.reduce((acc, item) => acc + item.quantity, 0)}
       />
     </div>
   );

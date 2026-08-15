@@ -14,7 +14,7 @@ export const WhyChooseUs: React.FC = () => {
 
   return (
     <section id="why-us" className="py-20 md:py-28 bg-[#E8E2D0] border-b border-[#CDD2C9] overflow-hidden select-none">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
         
         {/* Section Header */}
         <motion.div 

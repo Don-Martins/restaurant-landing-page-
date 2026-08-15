@@ -71,7 +71,9 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
         {/* Header */}
         <div className="p-5 border-b border-[#CDD2C9] flex items-center justify-between bg-[#2D3A1F] text-[#F4F1E8]">
           <div className="flex items-center gap-2">
-            <ShoppingBag01Icon size={20} className="text-[#B8A678]" />
+            <span className="text-[#B8A678] inline-flex">
+              <ShoppingBag01Icon size={20} />
+            </span>
             <h3 className="font-heading text-base font-bold uppercase tracking-wider">Your Order Basket</h3>
             <span className="bg-[#B8A678] text-[#2D3A1F] text-xs font-bold px-2 py-0.5 rounded-full">
               {cart.reduce((acc, item) => acc + item.quantity, 0)}
@@ -232,6 +234,9 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                     <img
                       src={item.dish.image}
                       alt={item.dish.name}
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=200&q=80';
+                      }}
                       className="w-14 h-14 rounded-xl object-cover"
                       referrerPolicy="no-referrer"
                     />

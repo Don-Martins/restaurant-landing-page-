@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Menu01Icon, Cancel01Icon } from 'hugeicons-react';
-import { CartItem } from '../types';
+import { motion, AnimatePresence } from 'motion/react';
 import { BrandLogo } from './BrandLogo';
 
 interface HeaderProps {
-  cart?: CartItem[];
   onOpenCart?: () => void;
   onOpenReservation?: () => void;
   onOpenSearch?: () => void;
@@ -61,72 +60,116 @@ export const Header: React.FC<HeaderProps> = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 py-3 sm:py-4 px-4 sm:px-6 lg:px-8 font-sans pointer-events-none">
-      <div className={`max-w-7xl mx-auto w-full pointer-events-auto rounded-full shadow-xl px-5 sm:px-8 py-2.5 sm:py-3 flex items-center justify-between ${
-        scrolled ? 'bg-[#F4F1E8]/98 backdrop-blur-md shadow-2xl' : 'bg-[#F4F1E8]/90 backdrop-blur-sm'
-      }`}>
-        
-        {/* Brand Logo on the LEFT */}
-        <button 
-          onClick={() => scrollToSection('hero', 'menu')} 
-          aria-label="Flavoria Home"
-          className="flex items-center cursor-pointer hover:opacity-90"
-        >
-          <BrandLogo size="sm" />
-        </button>
-
-        {/* Navigation Links on the RIGHT */}
-        <div className="flex items-center gap-3 sm:gap-6">
-          {/* Desktop Navigation Links (Clean layout without background box) */}
-          <nav className="hidden md:flex items-center gap-2 sm:gap-4">
-            {navItems.map((item) => {
-              const isActive = activeTab === item.tab;
-              return (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id, item.tab)}
-                  className={`px-5 py-2 rounded-full font-heading text-xs uppercase tracking-widest font-bold cursor-pointer transition-colors ${
-                    isActive
-                      ? 'bg-[#2D3A1F] text-[#F4F1E8]'
-                      : 'text-[#2D3A1F] hover:bg-[#2D3A1F]/10'
-                  }`}
-                >
-                  {item.label}
-                </button>
-              );
-            })}
-          </nav>
-
-          {/* Mobile Navigation Drawer Trigger */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle Navigation"
-            className="md:hidden p-2.5 text-[#2D3A1F] hover:bg-[#E8E2D0] rounded-full cursor-pointer"
-          >
-            {mobileMenuOpen ? <Cancel01Icon size={20} /> : <Menu01Icon size={20} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu Dropdown Drawer */}
+    <>
+      {/* Backdrop overlay for closing mobile menu on click outside */}
       {mobileMenuOpen && (
-        <div className="pointer-events-auto mt-2 max-w-7xl mx-auto bg-[#F4F1E8] rounded-2xl shadow-2xl p-5 space-y-2 font-heading text-xs font-bold uppercase tracking-wider text-[#2D3A1F]">
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => scrollToSection(item.id, item.tab)}
-              className={`block w-full text-left py-3 px-4 rounded-xl cursor-pointer ${
-                activeTab === item.tab ? 'bg-[#2D3A1F] text-[#F4F1E8]' : 'hover:bg-[#E8E2D0]'
-              }`}
-            >
-              {item.label}
-            </button>
-          ))}
-        </div>
+        <div 
+          className="fixed inset-0 bg-black/25 z-40 md:hidden pointer-events-auto backdrop-blur-[2px]"
+          onClick={() => setMobileMenuOpen(false)}
+        />
       )}
-    </header>
+
+      <motion.header 
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        className="fixed top-0 left-0 right-0 z-50 pt-2.5 sm:pt-3 px-3 sm:px-8 md:px-12 font-sans pointer-events-none"
+      >
+        <div className="max-w-7xl mx-auto w-full flex flex-col items-center">
+          {/* Main Navbar Floating Pill */}
+          <div className={`w-full h-[58px] sm:h-[64px] pointer-events-auto rounded-full shadow-lg px-3.5 sm:px-6 flex items-center justify-between transition-all duration-300 ${
+            scrolled ? 'bg-[#F4F1E8]/98 backdrop-blur-md shadow-xl border border-[#CDD2C9]/70' : 'bg-[#F4F1E8]/92 backdrop-blur-sm border border-[#CDD2C9]/50'
+          }`}>
+            
+            {/* Brand Logo on the LEFT */}
+            <button 
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                setActiveTab('menu');
+                setMobileMenuOpen(false);
+              }} 
+              aria-label="Fauget Restaurant Home"
+              className="flex items-center gap-2.5 cursor-pointer outline-none"
+            >
+              <BrandLogo size="nav" variant="dark" background="transparent" badge={false} />
+            </button>
+
+            {/* Navigation Links & Mobile Toggle on the RIGHT */}
+            <div className="flex items-center gap-2 sm:gap-4">
+              {/* Desktop Navigation Links */}
+              <nav className="hidden md:flex items-center gap-1 sm:gap-2 relative">
+                {navItems.map((item) => {
+                  const isActive = activeTab === item.tab;
+                  return (
+                    <button
+                      key={item.id}
+                      onClick={() => scrollToSection(item.id, item.tab)}
+                      className={`relative px-4 py-1.5 rounded-full font-heading text-xs uppercase tracking-widest font-semibold cursor-pointer transition-colors duration-200 outline-none ${
+                        isActive
+                          ? 'text-[#F4F1E8]'
+                          : 'text-[#2D3A1F] hover:text-[#B8A678]'
+                      }`}
+                    >
+                      {isActive && (
+                        <motion.div
+                          layoutId="activeNavPill"
+                          className="absolute inset-0 bg-[#2D3A1F] rounded-full shadow-sm z-0"
+                          transition={{
+                            type: 'spring',
+                            stiffness: 400,
+                            damping: 32,
+                          }}
+                        />
+                      )}
+                      <span className="relative z-10">{item.label}</span>
+                    </button>
+                  );
+                })}
+              </nav>
+
+              {/* Mobile Hamburger Drawer Toggle Button */}
+              <button
+                onClick={() => setMobileMenuOpen((prev) => !prev)}
+                aria-label="Toggle Navigation Menu"
+                aria-expanded={mobileMenuOpen}
+                className="md:hidden p-2 text-[#2D3A1F] hover:bg-[#E8E2D0] active:scale-95 rounded-full cursor-pointer transition-all flex items-center justify-center w-10 h-10 outline-none"
+              >
+                {mobileMenuOpen ? <Cancel01Icon size={22} /> : <Menu01Icon size={22} />}
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile Menu Dropdown Drawer */}
+          <AnimatePresence>
+            {mobileMenuOpen && (
+              <motion.div 
+                initial={{ opacity: 0, y: -10, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -10, scale: 0.98 }}
+                transition={{ duration: 0.2, ease: 'easeOut' }}
+                className="pointer-events-auto mt-2 w-full max-w-full bg-[#F4F1E8] border border-[#CDD2C9] rounded-2xl shadow-2xl p-4 space-y-2 font-heading text-xs font-bold uppercase tracking-wider text-[#2D3A1F]"
+              >
+                {navItems.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id, item.tab)}
+                    className={`block w-full text-left py-3 px-4 rounded-xl cursor-pointer transition-colors ${
+                      activeTab === item.tab ? 'bg-[#2D3A1F] text-[#F4F1E8]' : 'hover:bg-[#E8E2D0]'
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </motion.header>
+    </>
   );
 };
+
+
 
 
 

@@ -1,6 +1,7 @@
 import React from 'react';
-import { ArrowRight01Icon, Calendar01Icon, StarIcon } from 'hugeicons-react';
+import { ArrowRight01Icon, StarIcon } from 'hugeicons-react';
 import { motion } from 'motion/react';
+import { HERO_IMAGE } from '../data/restaurantData';
 
 interface HeroProps {
   onOpenReservation: () => void;
@@ -13,88 +14,81 @@ export const Hero: React.FC<HeroProps> = ({ onOpenReservation, onExploreMenu }) 
       id="hero" 
       className="relative w-full min-h-screen pt-40 sm:pt-48 md:pt-56 pb-24 md:pb-32 flex items-center bg-[#131B0E] text-[#F4F1E8] overflow-hidden select-none"
     >
-      {/* Decorative Natural Palm Leaves Accents (Image 1 style) */}
-      {/* Top Left Leaf */}
-      <div className="absolute top-0 left-0 w-64 md:w-96 h-64 md:h-96 pointer-events-none opacity-40 z-10">
-        <svg viewBox="0 0 200 200" className="w-full h-full text-[#3A4B29] fill-current">
-          <path d="M0,0 Q60,90 10,180 Q100,80 0,0 Q120,40 180,0 Q80,100 0,0" />
-        </svg>
+      {/* Background Image from Uploaded Image */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <img 
+          src={HERO_IMAGE} 
+          alt="Restaurant Ambiance Background" 
+          onError={(e) => {
+            (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1600&q=80';
+          }}
+          className="w-full h-full object-cover object-center scale-105"
+        />
+        {/* Dark Vignette Overlay for Crisp Contrast and Readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#131B0E]/95 via-[#131B0E]/80 to-[#131B0E]/40 md:to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#131B0E] via-transparent to-[#131B0E]/60" />
       </div>
 
-      {/* Bottom Right Leaf */}
-      <div className="absolute bottom-0 right-0 w-72 md:w-1/3 h-72 md:h-1/3 pointer-events-none opacity-30 z-10 transform rotate-180">
-        <svg viewBox="0 0 200 200" className="w-full h-full text-[#3A4B29] fill-current">
-          <path d="M0,0 Q60,90 10,180 Q100,80 0,0 Q120,40 180,0 Q80,100 0,0" />
-        </svg>
-      </div>
-
-      {/* Subtle Ambient Radial Glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_65%_50%,_rgba(184,166,120,0.12)_0%,_transparent_65%)] pointer-events-none z-0"></div>
-
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-20 w-full my-auto">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 relative z-20 w-full my-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
           {/* Left Text Content Area */}
-          <div className="lg:col-span-6 xl:col-span-6 space-y-6 md:space-y-8 text-left">
+          <div className="lg:col-span-7 xl:col-span-7 space-y-6 md:space-y-8 text-left">
             {/* Headline */}
-            <h1 className="font-heading text-4xl sm:text-6xl xl:text-[64px] font-bold leading-[1.15] tracking-tight text-[#F4F1E8]">
+            <motion.h1 
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="font-heading text-4xl sm:text-6xl xl:text-[64px] font-semibold leading-[1.15] tracking-tight text-[#F4F1E8]"
+            >
               Your Next Favorite <br />
-              Meal Starts <span className="text-[#B8A678] italic">Here.</span>
-            </h1>
+              Meal Starts <span className="text-[#B8A678] italic font-normal">Here.</span>
+            </motion.h1>
 
             {/* Supporting Copy */}
-            <p className="font-sans text-base sm:text-lg text-[#CDD2C9] leading-relaxed max-w-xl font-light">
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="font-sans text-base sm:text-lg text-[#CDD2C9] leading-relaxed max-w-xl font-light drop-shadow-sm"
+            >
               Discover a restaurant where every dish is prepared fresh, every guest is welcomed warmly, and every visit feels worth coming back for. Join us for an unforgettable dining experience.
-            </p>
+            </motion.p>
 
             {/* CTAs */}
-            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4"
+            >
               <button
                 onClick={onExploreMenu}
-                className="bg-[#B8A678] hover:bg-[#A39266] text-[#131B0E] font-heading font-bold text-sm tracking-widest uppercase px-8 py-4 rounded-md shadow-lg flex items-center justify-center gap-2 cursor-pointer transition-transform duration-300 hover:scale-105"
+                className="bg-[#B8A678] hover:bg-[#A39266] text-[#131B0E] font-heading font-bold text-sm tracking-widest uppercase px-8 py-4 rounded-2xl shadow-xl flex items-center justify-center gap-2 cursor-pointer transition-all duration-300 hover:scale-105"
               >
                 <span>VIEW OUR MENU</span>
                 <ArrowRight01Icon size={18} />
               </button>
-            </div>
+            </motion.div>
 
             {/* Ratings & Guests Badge */}
-            <div className="pt-4 flex items-center gap-3 text-xs font-sans text-[#CDD2C9]/80 border-t border-[#CDD2C9]/15 max-w-md">
-              <div className="flex text-[#B8A678]">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="pt-4 flex items-center gap-3 text-xs font-sans text-[#CDD2C9]/80 border-t border-[#CDD2C9]/20 max-w-md backdrop-blur-xs"
+            >
+              <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
-                  <StarIcon key={i} size={16} className="fill-current" />
+                  <span key={i} className="text-[#B8A678] fill-current inline-flex">
+                    <StarIcon size={16} />
+                  </span>
                 ))}
               </div>
               <span className="font-bold text-[#F4F1E8]">4.9 / 5.0</span>
               <span>• Michelin Star Culinary Experience</span>
-            </div>
+            </motion.div>
           </div>
-
-          {/* Right Plate Visual Area - Transparent & Seamless Floating Plate */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            className="lg:col-span-6 xl:col-span-6 flex justify-center lg:justify-end relative"
-          >
-            <div className="relative w-full max-w-[320px] sm:max-w-[420px] lg:max-w-[460px] aspect-square flex items-center justify-center group mx-auto lg:mr-0">
-              
-              {/* Gourmet Dish Image - Perfectly Circular Seamless Float */}
-              <div className="relative w-full h-full rounded-full overflow-hidden drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
-                <img
-                  src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80"
-                  alt="Signature Gourmet Dish"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 rounded-full"
-                  style={{
-                    maskImage: 'radial-gradient(circle at center, black 58%, transparent 70%)',
-                    WebkitMaskImage: 'radial-gradient(circle at center, black 58%, transparent 70%)'
-                  }}
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-
-            </div>
-          </motion.div>
 
         </div>
       </div>

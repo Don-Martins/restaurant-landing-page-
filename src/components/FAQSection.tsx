@@ -1,70 +1,50 @@
 import React, { useState } from 'react';
 import { FAQS } from '../data/restaurantData';
-import { ArrowDown01Icon, HelpCircleIcon } from 'hugeicons-react';
+import { ArrowDown01Icon } from 'hugeicons-react';
+import { motion, AnimatePresence } from 'motion/react';
 
 export const FAQSection: React.FC = () => {
   const [openId, setOpenId] = useState<string | null>(FAQS[0].id);
-  const [categoryFilter, setCategoryFilter] = useState<string>('all');
-
-  const categories = [
-    { label: 'All Questions', value: 'all' },
-    { label: 'Reservations', value: 'reservations' },
-    { label: 'Parking & Valet', value: 'parking' },
-    { label: 'Delivery & Takeaway', value: 'delivery' },
-    { label: 'Dietary & Menu', value: 'dietary' },
-    { label: 'Private Events', value: 'events' },
-  ];
-
-  const filteredFaqs = categoryFilter === 'all'
-    ? FAQS
-    : FAQS.filter((faq) => faq.category === categoryFilter);
 
   return (
-    <section id="faq" className="py-20 md:py-28 bg-[#F4F1E8] border-b border-[#CDD2C9] select-none">
-      <div className="max-w-4xl mx-auto px-6 md:px-12">
+    <section id="faq" className="py-20 md:py-28 bg-[#F4F1E8] border-b border-[#CDD2C9] select-none overflow-hidden">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
         
         {/* Section Header */}
-        <div className="text-center space-y-4 mb-12">
-          <h2 className="font-heading text-3xl md:text-5xl font-normal text-[#2D3A1F] tracking-tight">
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center space-y-3 mb-12 max-w-4xl mx-auto"
+        >
+          <h2 className="font-heading text-2xl md:text-4xl font-semibold text-[#2D3A1F] tracking-tight">
             Frequently Asked Questions
           </h2>
-          <p className="font-sans text-[#2D3A1F]/80 text-base md:text-lg font-light">
-            Everything you need to know about dining, reservations, parking, and catering services.
+          <p className="font-sans text-[#2D3A1F]/80 text-base md:text-lg font-light max-w-2xl mx-auto">
+            Find quick answers about reservations, opening hours, delivery, and dietary options.
           </p>
-        </div>
-
-        {/* Category Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
-          {categories.map((cat) => (
-            <button
-              key={cat.value}
-              onClick={() => setCategoryFilter(cat.value)}
-              className={`font-heading text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full transition-all cursor-pointer ${
-                categoryFilter === cat.value
-                  ? 'bg-[#2D3A1F] text-[#F4F1E8] shadow-md'
-                  : 'bg-[#E8E2D0] text-[#2D3A1F] hover:bg-[#F4F1E8] border border-[#CDD2C9]'
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
-        </div>
+        </motion.div>
 
         {/* Accordion List */}
-        <div className="space-y-4">
-          {filteredFaqs.map((faq) => {
+        <div className="max-w-4xl mx-auto space-y-4">
+          {FAQS.map((faq, index) => {
             const isOpen = openId === faq.id;
 
             return (
-              <div
+              <motion.div
                 key={faq.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
                 className="bg-[#E8E2D0] rounded-2xl border border-[#CDD2C9] shadow-xs overflow-hidden transition-all duration-200"
               >
                 <button
                   onClick={() => setOpenId(isOpen ? null : faq.id)}
                   className="w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none cursor-pointer"
                 >
-                  <span className="font-heading text-base md:text-lg font-bold text-[#2D3A1F] hover:text-[#B8A678] transition-colors">
+                  <span className="font-heading text-base md:text-lg font-semibold text-[#2D3A1F] hover:text-[#B8A678] transition-colors">
                     {faq.question}
                   </span>
                   <div
@@ -76,12 +56,20 @@ export const FAQSection: React.FC = () => {
                   </div>
                 </button>
 
-                {isOpen && (
-                  <div className="px-6 pb-6 text-sm text-[#2D3A1F]/80 font-sans leading-relaxed border-t border-[#CDD2C9]/60 pt-4 animate-in fade-in duration-200 font-light">
-                    {faq.answer}
-                  </div>
-                )}
-              </div>
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div 
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.25 }}
+                      className="px-6 pb-6 text-sm sm:text-base text-[#2D3A1F]/80 font-sans leading-relaxed border-t border-[#CDD2C9]/60 pt-4 font-light"
+                    >
+                      {faq.answer}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
             );
           })}
         </div>
@@ -90,4 +78,3 @@ export const FAQSection: React.FC = () => {
     </section>
   );
 };
-

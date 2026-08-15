@@ -123,19 +123,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({
               </div>
             </div>
 
-            <div className="grid grid-cols-3 gap-3">
-              <div>
-                <label className="block text-[11px] font-heading font-bold uppercase text-[#2D3A1F] mb-1">Phone *</label>
-                <input
-                  type="tel"
-                  required
-                  placeholder="Phone"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full bg-[#E8E2D0] border border-[#CDD2C9] rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-[#B8A678] text-[#2D3A1F]"
-                />
-              </div>
-
+            <div className="grid grid-cols-2 gap-3">
               <div>
                 <label className="block text-[11px] font-heading font-bold uppercase text-[#2D3A1F] mb-1">Date *</label>
                 <input
@@ -143,7 +131,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({
                   required
                   value={formData.date}
                   onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                  className="w-full bg-[#E8E2D0] border border-[#CDD2C9] rounded-xl px-2 py-2.5 text-xs focus:outline-none focus:border-[#B8A678] text-[#2D3A1F]"
+                  className="w-full bg-[#E8E2D0] border border-[#CDD2C9] rounded-xl px-2.5 py-2.5 text-xs focus:outline-none focus:border-[#B8A678] text-[#2D3A1F]"
                 />
               </div>
 
@@ -152,7 +140,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({
                 <select
                   value={formData.time}
                   onChange={(e) => setFormData({ ...formData, time: e.target.value })}
-                  className="w-full bg-[#E8E2D0] border border-[#CDD2C9] rounded-xl px-2 py-2.5 text-xs focus:outline-none focus:border-[#B8A678] text-[#2D3A1F]"
+                  className="w-full bg-[#E8E2D0] border border-[#CDD2C9] rounded-xl px-2.5 py-2.5 text-xs focus:outline-none focus:border-[#B8A678] text-[#2D3A1F]"
                 >
                   <option value="12:00">12:00 PM</option>
                   <option value="13:00">01:00 PM</option>
@@ -164,7 +152,19 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div>
+                <label className="block text-[11px] font-heading font-bold uppercase text-[#2D3A1F] mb-1">Phone Number *</label>
+                <input
+                  type="tel"
+                  required
+                  placeholder="+1 (555) 000-0000"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  className="w-full bg-[#E8E2D0] border border-[#CDD2C9] rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-[#B8A678] text-[#2D3A1F]"
+                />
+              </div>
+
               <div>
                 <label className="block text-[11px] font-heading font-bold uppercase text-[#2D3A1F] mb-1">Party Size</label>
                 <select
@@ -179,7 +179,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({
               </div>
 
               <div>
-                <label className="block text-[11px] font-heading font-bold uppercase text-[#2D3A1F] mb-1">Seating Area</label>
+                <label className="block text-[11px] font-heading font-bold uppercase text-[#2D3A1F] mb-1">Seating Preference</label>
                 <select
                   value={formData.seatingArea}
                   onChange={(e) => setFormData({ ...formData, seatingArea: e.target.value as any })}

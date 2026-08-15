@@ -1,6 +1,6 @@
 import React from 'react';
-import { SERVICES } from '../data/restaurantData';
-import { Restaurant01Icon, ShoppingBag01Icon, DeliveryTruck01Icon, Coffee01Icon, FavouriteIcon, Briefcase01Icon, ArrowRight01Icon } from 'hugeicons-react';
+import { Restaurant01Icon, ShoppingBag01Icon, DeliveryTruck01Icon, Briefcase01Icon, FavouriteIcon, Coffee01Icon } from 'hugeicons-react';
+import { motion } from 'motion/react';
 
 interface ServicesSectionProps {
   onOpenReservation: () => void;
@@ -11,88 +11,111 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
   onOpenReservation,
   onExploreMenu,
 }) => {
-  const iconMap: Record<string, React.FC<{ size?: number; className?: string }>> = {
-    Utensils: Restaurant01Icon,
-    ShoppingBag: ShoppingBag01Icon,
-    Truck: DeliveryTruck01Icon,
-    GlassWater: Coffee01Icon,
-    Gift: FavouriteIcon,
-    Briefcase: Briefcase01Icon,
-  };
+  const servicesList = [
+    {
+      id: 'srv-dinein',
+      title: 'Dine In Experience',
+      description: 'Enjoy freshly prepared gourmet meals in a comfortable, romantic, and welcoming atmosphere with attentive service.',
+      icon: Restaurant01Icon,
+      image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80',
+    },
+    {
+      id: 'srv-takeaway',
+      title: 'Takeaway Service',
+      description: 'Order your favourites online and pick them up quickly, carefully packaged to retain maximum temperature and flavor.',
+      icon: ShoppingBag01Icon,
+      image: 'https://images.unsplash.com/photo-1526367790999-0150786686a2?auto=format&fit=crop&w=800&q=80',
+    },
+    {
+      id: 'srv-catering',
+      title: 'Event Catering',
+      description: 'Artisanal culinary menus prepared with master precision for private celebrations, weddings, and corporate receptions.',
+      icon: Briefcase01Icon,
+      image: 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=800&q=80',
+    },
+    {
+      id: 'srv-delivery',
+      title: 'Doorstep Delivery',
+      description: 'Get your favourite signature dishes delivered hot and fresh directly to your residence within our express delivery zone.',
+      icon: DeliveryTruck01Icon,
+      image: 'https://images.unsplash.com/photo-1585759071429-1646f76ab8c7?auto=format&fit=crop&w=800&q=80',
+    },
+    {
+      id: 'srv-private',
+      title: 'Private Suites',
+      description: 'Exclusive private dining rooms tailored for intimate gatherings, birthday galas, and confidential business dinners.',
+      icon: FavouriteIcon,
+      image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80',
+    },
+    {
+      id: 'srv-chefstable',
+      title: 'Chef’s Tasting Table',
+      description: 'An interactive multi-course dining journey guided by our head chef with curated vintage wine pairings.',
+      icon: Coffee01Icon,
+      image: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=800&q=80',
+    },
+  ];
 
   return (
-    <section id="services" className="py-20 md:py-28 bg-[#F4F1E8] border-b border-[#CDD2C9] select-none">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <section id="services" className="py-20 md:py-28 bg-[#F4F1E8] border-b border-[#CDD2C9] select-none overflow-hidden">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <span className="font-heading text-xs font-bold text-[#B8A678] tracking-[0.25em] uppercase block">
-            TAILORED HOSPITALITY
-          </span>
-          <h2 className="font-heading text-3xl md:text-5xl font-normal text-[#2D3A1F] tracking-tight">
-            Our Premium Services
+        {/* Section Header matching Reference Image structure */}
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto space-y-3 mb-16 md:mb-20"
+        >
+          <h2 className="font-heading text-2xl md:text-4xl font-semibold text-[#2D3A1F] tracking-tight">
+            Our Services
           </h2>
-          <p className="font-sans text-[#2D3A1F]/80 text-base md:text-lg font-light">
-            Whether dining in our romantic hall, enjoying takeaway at home, or hosting an exclusive corporate gala, we deliver five-star excellence.
+          <p className="font-sans text-[#2D3A1F]/75 text-base md:text-lg font-light leading-relaxed">
+            From casual dine-in moments to rapid delivery and private catering, we bring five-star culinary art to every table.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {SERVICES.map((srv) => {
-            const IconComp = iconMap[srv.icon] || Restaurant01Icon;
+        {/* 3-Column Services Grid matching Reference Image visual style */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+          {servicesList.map((srv, index) => {
+            const IconComp = srv.icon;
 
             return (
-              <div
+              <motion.div
                 key={srv.id}
-                className="bg-[#E8E2D0] rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-[#CDD2C9] hover:border-[#B8A678] group flex flex-col justify-between transform hover:-translate-y-1"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                className="bg-white rounded-3xl border border-[#CDD2C9] hover:border-[#B8A678] shadow-sm hover:shadow-2xl transition-all duration-300 group flex flex-col hover:-translate-y-1.5 overflow-hidden"
               >
-                <div>
-                  {/* Service Image Header */}
-                  <div className="relative h-48 overflow-hidden bg-[#2D3A1F]">
-                    <img
-                      src={srv.image}
-                      alt={srv.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
-                      referrerPolicy="no-referrer"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#2D3A1F]/80 via-[#2D3A1F]/20 to-transparent"></div>
+                {/* Top Image Container */}
+                <div className="relative h-52 sm:h-56 overflow-hidden bg-[#2D3A1F]">
+                  <img
+                    src={srv.image}
+                    alt={srv.title}
+                    className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500 ease-out opacity-95 group-hover:opacity-100"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
 
-                    {/* Icon Floating Badge */}
-                    <div className="absolute top-4 left-4 w-16 h-16 rounded-2xl bg-[#F4F1E8]/95 backdrop-blur-md text-[#B8A678] flex items-center justify-center shadow-xl group-hover:bg-[#2D3A1F] group-hover:text-[#F4F1E8] transition-all duration-300 border border-[#CDD2C9]">
-                      <IconComp size={32} />
-                    </div>
-
-                    {/* Highlight Badge */}
-                    <span className="absolute bottom-3 right-3 text-[11px] font-heading font-bold uppercase tracking-wider bg-[#2D3A1F]/90 backdrop-blur-xs text-[#F4F1E8] px-3 py-1 rounded-full border border-[#B8A678]/30">
-                      {srv.highlight}
-                    </span>
-                  </div>
-
-                  {/* Title & Description */}
-                  <div className="p-6 space-y-2">
-                    <h3 className="font-heading text-xl font-bold text-[#2D3A1F] group-hover:text-[#B8A678] transition-colors">
-                      {srv.title}
-                    </h3>
-                    <p className="font-sans text-[#2D3A1F]/75 text-sm leading-relaxed font-light">
-                      {srv.description}
-                    </p>
+                  {/* Clean Icon Badge Inside the Card Top-Left */}
+                  <div className="absolute top-4 left-4 w-12 h-12 rounded-2xl bg-white/90 backdrop-blur-md border border-[#CDD2C9] shadow-md flex items-center justify-center text-[#2D3A1F] group-hover:bg-[#2D3A1F] group-hover:text-[#B8A678] group-hover:border-[#B8A678] transition-all duration-300">
+                    <IconComp size={22} />
                   </div>
                 </div>
 
-                {/* Bottom Action */}
-                <div className="p-6 pt-0 mt-2">
-                  <div className="pt-4 border-t border-[#CDD2C9]/60 flex items-center justify-between">
-                    <button
-                      onClick={srv.title.includes('Dine') || srv.title.includes('Private') || srv.title.includes('Birthday') ? onOpenReservation : onExploreMenu}
-                      className="font-heading text-xs font-bold uppercase text-[#2D3A1F] group-hover:text-[#B8A678] transition-colors flex items-center gap-1.5 cursor-pointer"
-                    >
-                      <span>Inquire & Reserve</span>
-                      <ArrowRight01Icon size={16} className="group-hover:translate-x-1 transition-transform" />
-                    </button>
-                  </div>
+                {/* Card Content */}
+                <div className="p-6 sm:p-7 text-left space-y-2 flex-1 flex flex-col justify-start">
+                  <h3 className="font-heading text-xl font-bold text-[#2D3A1F] group-hover:text-[#B8A678] transition-colors">
+                    {srv.title}
+                  </h3>
+                  <p className="font-sans text-[#2D3A1F]/75 text-sm leading-relaxed font-light">
+                    {srv.description}
+                  </p>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

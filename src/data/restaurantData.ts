@@ -1,5 +1,15 @@
 import { MenuCategory, MenuItem, Chef, Review, GalleryItem, SpecialOffer, FAQItem } from '../types';
-export const HERO_IMAGE = 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80';
+import testimonial1Img from '../assets/images/testimonial_1_1785780895359.jpg';
+import testimonial2Img from '../assets/images/testimonial_2_1785780912514.jpg';
+import testimonial3Img from '../assets/images/testimonial_3_1785780972620.jpg';
+import testimonial4Img from '../assets/images/testimonial_4_1785781109693.jpg';
+
+import chef1Img from '../assets/images/chef_1_black_coat_1785782789824.jpg';
+import chef2Img from '../assets/images/chef_2_female_coat_1785782865330.jpg';
+import chef3Img from '../assets/images/chef_3_male_toque_1785782878014.jpg';
+import heroBgImg from '../assets/hero-bg.jpg';
+
+export const HERO_IMAGE = heroBgImg;
 export const AMBIANCE_IMAGE = 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80';
 
 export const MENU_CATEGORIES: MenuCategory[] = [
@@ -288,33 +298,48 @@ export const SERVICES = [
 export const CHEFS: Chef[] = [
   {
     id: 'chef-1',
-    name: 'Chef Alessandro Rossi',
+    name: 'Kofi Mensah',
     role: 'Executive Head Chef',
-    bio: '18 years of Michelin-starred culinary mastery crafting authentic Mediterranean fusion.',
+    bio: 'Kofi brings 18 years of culinary mastery, crafting authentic Mediterranean fusion and fine dining art.',
     experienceYears: 18,
     specialty: 'Contemporary Mediterranean Fusion',
-    awards: ['Gambero Rosso Chef of the Year 2024', 'Michelin Guide Selection 2023'],
-    image: 'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=600&q=80'
+    awards: ['Culinary Excellence 2024'],
+    image: chef1Img,
+    socials: {
+      twitter: 'https://twitter.com',
+      linkedin: 'https://linkedin.com',
+      instagram: 'https://instagram.com'
+    }
   },
   {
     id: 'chef-2',
-    name: 'Chef Sophie Laurent',
-    role: 'Master Pastry Chef',
-    bio: 'Parisian-trained pastry artist curating delicate French desserts and botanical creations.',
+    name: 'Megi Gjata',
+    role: 'Executive Pastry Chef',
+    bio: 'Renowned pastry artist curating delicate gourmet desserts and botanical sweet creations.',
     experienceYears: 14,
-    specialty: 'Artisanal French Pastry',
-    awards: ['World Pastry Championship Gold', 'Top 10 European Pastry Artists'],
-    image: 'https://images.unsplash.com/photo-1583394293214-28ded15ee548?auto=format&fit=crop&w=600&q=80'
+    specialty: 'Artisanal Fine Pastry & Desserts',
+    awards: ['Top Pastry Artist'],
+    image: chef2Img,
+    socials: {
+      twitter: 'https://twitter.com',
+      linkedin: 'https://linkedin.com',
+      instagram: 'https://instagram.com'
+    }
   },
   {
     id: 'chef-3',
-    name: 'Chef Marcus Vance',
+    name: 'Marco Bellini',
     role: 'Grill Master & Sous Chef',
-    bio: 'Master of open-flame cooking, dry-aging techniques, and precision knife craftsmanship.',
+    bio: 'Master of open-flame cooking and precision knife craftsmanship, overseeing our signature prime cuts.',
     experienceYears: 12,
-    specialty: 'Dry-Aged Meats & Wood-Fired Seafood',
-    awards: ['National Grill Champion', 'Culinary Innovator Award'],
-    image: 'https://images.unsplash.com/photo-1607631568010-a87245c0daf8?auto=format&fit=crop&w=600&q=80'
+    specialty: 'Wood-Fired Seafood & Prime Cuts',
+    awards: ['Master Grill Award'],
+    image: chef3Img,
+    socials: {
+      twitter: 'https://twitter.com',
+      linkedin: 'https://linkedin.com',
+      instagram: 'https://instagram.com'
+    }
   }
 ];
 
@@ -348,36 +373,47 @@ export const HOW_IT_WORKS = [
 export const REVIEWS: Review[] = [
   {
     id: 'rev-1',
-    customerName: 'Eleanor Vance',
+    customerName: 'Marcus Vance',
     customerRole: 'Food & Lifestyle Critic',
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
+    avatar: testimonial1Img,
     rating: 5,
     date: '2 days ago',
-    comment: 'Flavoria exceeds every expectation! The Grilled Salmon was remarkably tender with an incredible citrus glaze. The ambience made our anniversary dinner truly magical.',
+    comment: 'Fauget Restaurant exceeds every expectation! The Grilled Salmon was remarkably tender with an incredible citrus glaze. The ambience made our evening truly magical.',
     verified: true,
     dishOrdered: 'Grilled Salmon Supreme'
   },
   {
     id: 'rev-2',
-    customerName: 'David & Sarah Miller',
-    customerRole: 'Regular Guests',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
+    customerName: 'Aisha Robinson',
+    customerRole: 'Regular Guest',
+    avatar: testimonial2Img,
     rating: 5,
-    date: '1 week ago',
-    comment: 'The online table reservation was so fast. When we arrived, our table on the outdoor terrace was ready with candles lit. Staff hospitality is unmatched in the city!',
+    date: '5 days ago',
+    comment: 'The online table reservation was so fast. When we arrived, our table on the terrace was ready with candles lit. Staff hospitality is unmatched in the city!',
     verified: true,
     dishOrdered: 'Prime Ribeye Steak'
   },
   {
     id: 'rev-3',
-    customerName: 'Dr. Robert Thorne',
-    customerRole: 'University Professor',
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80',
+    customerName: 'Dante Jackson',
+    customerRole: 'Culinary Enthusiast',
+    avatar: testimonial3Img,
     rating: 5,
-    date: '2 weeks ago',
-    comment: 'Ordered delivery for a dinner party. Everything arrived hot, crisp, and presented like a five-star restaurant plate. The Tiramisu is pure perfection.',
+    date: '1 week ago',
+    comment: 'Ordered for a dinner party. Everything arrived hot, crisp, and presented like a five-star restaurant plate. The Tiramisu is pure perfection.',
     verified: true,
     dishOrdered: 'Classic Venetian Tiramisu'
+  },
+  {
+    id: 'rev-4',
+    customerName: 'Julian Thorne',
+    customerRole: 'Executive Chef & Guest',
+    avatar: testimonial4Img,
+    rating: 5,
+    date: '2 weeks ago',
+    comment: 'Impeccable attention to detail, flavor balance, and presentation. Fauget is a benchmark for contemporary fine dining in the region.',
+    verified: true,
+    dishOrdered: 'Truffle Tagliatelle'
   }
 ];
 
@@ -420,39 +456,63 @@ export const SPECIAL_OFFERS: SpecialOffer[] = [
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: 'gal-1',
-    title: 'Signature Grilled Salmon',
+    title: 'Artisanal Skillet Searing',
     category: 'food',
-    image: HERO_IMAGE
+    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'gal-2',
-    title: 'Candlelit Main Dining Room',
-    category: 'restaurant',
-    image: AMBIANCE_IMAGE
+    title: 'Fresh Herb Pesto Fettuccine',
+    category: 'food',
+    image: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'gal-3',
-    title: 'Chef Alessandro at Work',
-    category: 'kitchen',
-    image: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=600&q=80'
+    title: 'Main Dining Atmosphere',
+    category: 'restaurant',
+    image: 'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'gal-4',
-    title: 'Private Event Dining Setup',
+    title: 'Celebratory Group Dining',
     category: 'events',
-    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80'
+    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'gal-5',
-    title: 'Handcrafted Wood-Fired Pizza',
+    title: 'Heirloom Burrata Caprese',
     category: 'food',
-    image: 'https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?auto=format&fit=crop&w=600&q=80'
+    image: 'https://images.unsplash.com/photo-1592417817098-8f3d6eb19655?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'gal-6',
-    title: 'Artisan Dessert Crafting',
+    title: 'Wood-Fired Savory Tart',
     category: 'food',
-    image: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80'
+    image: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    id: 'gal-7',
+    title: 'Master Chef Plating',
+    category: 'kitchen',
+    image: 'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    id: 'gal-8',
+    title: 'Organic Farm Harvest',
+    category: 'kitchen',
+    image: 'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    id: 'gal-9',
+    title: 'Fresh Mediterranean Salad',
+    category: 'food',
+    image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    id: 'gal-10',
+    title: 'French Onion Casserole',
+    category: 'food',
+    image: 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=800&q=80'
   }
 ];
 
@@ -460,37 +520,25 @@ export const FAQS: FAQItem[] = [
   {
     id: 'faq-1',
     category: 'reservations',
-    question: 'How far in advance should I reserve a table?',
-    answer: 'We recommend reserving 2 to 3 days in advance for weeknights and 1 to 2 weeks ahead for Friday/Saturday evening dining. Walk-in guests are also welcomed based on live availability.'
+    question: 'How do I book a table?',
+    answer: 'Click "Book Table" anywhere on our website, select your date, time, and number of guests. You will get an instant confirmation right away.'
   },
   {
     id: 'faq-2',
-    category: 'reservations',
-    question: 'Is there a dress code at Flavoria?',
-    answer: 'Our dress code is Smart Casual. We want our guests to feel comfortable yet stylish while celebrating special occasions.'
+    category: 'events',
+    question: 'What kind of dining options do you offer?',
+    answer: 'We offer regular a la carte dining, daily chef specials, and private room options for family celebrations or group events.'
   },
   {
     id: 'faq-3',
-    category: 'parking',
-    question: 'Do you offer valet or nearby parking?',
-    answer: 'Yes! We provide complimentary guest valet parking directly at our main entrance from 5:00 PM daily. A multi-level public parking structure is also located 1 block away.'
+    category: 'delivery',
+    question: 'Do you offer food delivery or pickup?',
+    answer: 'Yes! You can order online for home delivery within 10 km (free on orders over $50) or choose quick pickup at the restaurant.'
   },
   {
     id: 'faq-4',
-    category: 'delivery',
-    question: 'What is your delivery radius and estimated time?',
-    answer: 'We deliver within a 10km radius of Flavoria. Most orders are delivered hot and fresh in 30 to 40 minutes. Delivery is FREE on all orders over $50.'
-  },
-  {
-    id: 'faq-5',
     category: 'dietary',
-    question: 'Do you cater to vegetarian, vegan, and gluten-free diets?',
-    answer: 'Extensively! Our menu clearly highlights Gluten-Free, Vegetarian, Vegan, and Nut-Free dishes. Our chefs can also customize meals for specific allergies.'
-  },
-  {
-    id: 'faq-6',
-    category: 'events',
-    question: 'Can I host private birthday parties or corporate dinners?',
-    answer: 'Yes, our Private Dining Suite accommodates up to 50 guests. We offer custom set menus, wine pairings, projector equipment, and personalized decor.'
+    question: 'Do you have vegetarian, vegan, or allergy options?',
+    answer: 'Yes! We clearly mark vegetarian, vegan, gluten-free, and nut-free dishes on our menu. Just inform your server about any dietary needs.'
   }
 ];

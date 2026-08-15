@@ -23,7 +23,7 @@ export const SpecialOfferBanner: React.FC<SpecialOfferBannerProps> = ({
         <div className="absolute inset-0 bg-gradient-to-r from-[#2D3A1F]/95 via-[#2D3A1F]/80 to-[#2D3A1F]/95"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center space-y-6">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 relative z-10 text-center space-y-6">
         <div className="inline-flex items-center gap-2 bg-[#B8A678]/20 border border-[#B8A678]/40 text-[#B8A678] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">
           <Tag01Icon size={14} /> Exclusive Welcome Offer
         </div>
@@ -43,7 +43,9 @@ export const SpecialOfferBanner: React.FC<SpecialOfferBannerProps> = ({
             className="inline-flex items-center justify-center bg-[#B8A678] hover:bg-[#A39266] text-[#2D3A1F] font-heading font-bold text-sm tracking-widest uppercase px-8 py-4 rounded-full shadow-lg transition-all hover:scale-105 active:scale-95 cursor-pointer"
           >
             ORDER NOW
-            <ArrowRight01Icon size={18} className="ml-2" />
+            <span className="ml-2 inline-flex">
+              <ArrowRight01Icon size={18} />
+            </span>
           </button>
         </div>
       </div>

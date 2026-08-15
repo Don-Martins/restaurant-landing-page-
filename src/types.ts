@@ -50,6 +50,11 @@ export interface Chef {
   specialty: string;
   awards: string[];
   image: string;
+  socials?: {
+    twitter?: string;
+    linkedin?: string;
+    instagram?: string;
+  };
 }
 
 export interface Review {

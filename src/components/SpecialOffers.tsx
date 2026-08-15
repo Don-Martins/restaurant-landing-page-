@@ -42,7 +42,7 @@ export const SpecialOffers: React.FC<SpecialOffersProps> = ({ onAddToCart }) => 
 
   return (
     <section id="special-offers" className="py-20 md:py-28 bg-[#F4F1E8] border-b border-[#CDD2C9] relative overflow-hidden select-none">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 relative z-10">
         
         {/* Section Header */}
         <motion.div 
@@ -92,7 +92,7 @@ export const SpecialOffers: React.FC<SpecialOffersProps> = ({ onAddToCart }) => 
                     </div>
 
                     <div className="absolute bottom-3 right-3 bg-[#F4F1E8]/90 backdrop-blur-xs text-[#2D3A1F] text-[11px] font-bold px-2.5 py-1 rounded-md flex items-center gap-1 shadow-sm border border-[#CDD2C9]">
-                      <Clock01Icon size={14} className="text-[#B8A678]" /> {offer.validUntil}
+                      <span className="text-[#B8A678] inline-flex"><Clock01Icon size={14} /></span> {offer.validUntil}
                     </div>
                   </div>
 

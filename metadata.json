@@ -1,6 +1,6 @@
 {
-  "name": "Flavoria Fine Dining",
-  "description": "A premium, modern restaurant landing page featuring interactive table reservations, online menu ordering, chef recommendations, and an immersive dining experience.",
+  "name": "Flavoria",
+  "description": "A premium, modern fine dining restaurant featuring interactive table reservations, artisanal menu, master chefs, and an immersive culinary experience.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

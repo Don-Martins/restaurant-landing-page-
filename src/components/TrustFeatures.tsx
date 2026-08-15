@@ -27,7 +27,7 @@ export const TrustFeatures: React.FC = () => {
 
   return (
     <section className="py-12 bg-[#E8E2D0] border-b border-[#CDD2C9] overflow-hidden select-none">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16">
         
         {/* On Mobile: Stacked Overlapping Cards Layout; On Desktop: 4-Column Grid */}
         <div className="flex flex-col sm:grid sm:grid-cols-4 gap-0 sm:gap-6 md:gap-8 relative">

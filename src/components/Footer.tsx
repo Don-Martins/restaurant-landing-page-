@@ -31,13 +31,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenReservation }) => {
 
   return (
     <footer id="footer" className="bg-[#131B0E] text-[#F4F1E8] pt-16 pb-12 font-sans border-t border-[#2A3B22] relative overflow-hidden select-none">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 relative z-10">
         
         {/* Top Header Row (Image 3 style: Logo on left, Social pills on right) */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pb-12 border-b border-[#2A3B22]">
           {/* Brand Logo */}
           <div className="flex items-center">
-            <BrandLogo size="md" />
+            <BrandLogo size="md" variant="light" />
           </div>
 
           {/* Yellow/Gold Social Icon Pills (Image 3 style) */}
@@ -81,7 +81,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenReservation }) => {
             
             {/* Col 1: Menu */}
             <div className="space-y-4">
-              <h4 className="font-heading text-sm font-bold text-[#F4F1E8] tracking-wider uppercase">
+              <h4 className="font-heading text-sm font-semibold text-[#F4F1E8] tracking-wider uppercase">
                 Menu
               </h4>
               <ul className="space-y-2.5 text-xs text-[#CDD2C9]/80 font-normal">
@@ -110,7 +110,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenReservation }) => {
 
             {/* Col 2: Experience */}
             <div className="space-y-4">
-              <h4 className="font-heading text-sm font-bold text-[#F4F1E8] tracking-wider uppercase">
+              <h4 className="font-heading text-sm font-semibold text-[#F4F1E8] tracking-wider uppercase">
                 Experience
               </h4>
               <ul className="space-y-2.5 text-xs text-[#CDD2C9]/80 font-normal">
@@ -139,7 +139,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenReservation }) => {
 
             {/* Col 3: Visit Us */}
             <div className="space-y-4">
-              <h4 className="font-heading text-sm font-bold text-[#F4F1E8] tracking-wider uppercase">
+              <h4 className="font-heading text-sm font-semibold text-[#F4F1E8] tracking-wider uppercase">
                 Visit Us
               </h4>
               <ul className="space-y-2.5 text-xs text-[#CDD2C9]/80 font-normal">
@@ -163,13 +163,15 @@ export const Footer: React.FC<FooterProps> = ({ onOpenReservation }) => {
 
           {/* Newsletter Box (Image 3 right column) */}
           <div className="lg:col-span-5 space-y-4">
-            <h4 className="font-heading text-sm font-bold text-[#F4F1E8] tracking-wider uppercase">
-              Subscribe to the Flavoria Newsletter
+            <h4 className="font-heading text-sm font-semibold text-[#F4F1E8] tracking-wider uppercase">
+              Subscribe to the Fauget Newsletter
             </h4>
 
             {newsletterSubscribed ? (
               <div className="bg-[#2A3B22] text-[#F4F1E8] p-3.5 rounded-full text-xs font-medium flex items-center gap-2">
-                <Tick01Icon size={18} className="text-[#B8A678]" />
+                <span className="text-[#B8A678] inline-flex">
+                  <Tick01Icon size={18} />
+                </span>
                 <span>Thank you for subscribing to our culinary updates.</span>
               </div>
             ) : (
@@ -192,7 +194,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenReservation }) => {
                   </button>
                 </div>
                 <p className="text-[11px] text-[#CDD2C9]/60 pl-2">
-                  By submitting, you agree to Flavoria's Privacy Policy.
+                  By submitting, you agree to Fauget Restaurant's Privacy Policy.
                 </p>
               </form>
             )}
@@ -203,7 +205,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenReservation }) => {
         {/* Bottom Line Bar (Image 3 style) */}
         <div className="pt-8 border-t border-[#2A3B22] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#CDD2C9]/60 font-sans">
           <div>
-            © 2026 Flavoria Dining Group. All rights reserved.
+            © 2026 Fauget Restaurant Group. All rights reserved.
           </div>
 
           <div className="flex items-center gap-6">

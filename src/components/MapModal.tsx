@@ -67,7 +67,9 @@ export const MapModal: React.FC<MapModalProps> = ({ isOpen, onClose }) => {
 
         <div className="p-6 bg-[#E8E2D0] grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-[#2D3A1F]">
           <div className="flex items-center gap-2">
-            <Clock01Icon size={16} className="text-[#B8A678]" />
+            <span className="text-[#B8A678] inline-flex">
+              <Clock01Icon size={16} />
+            </span>
             <div>
               <span className="font-bold block">Opening Hours:</span>
               <span>11:30 AM - 11:00 PM Daily</span>
@@ -75,7 +77,9 @@ export const MapModal: React.FC<MapModalProps> = ({ isOpen, onClose }) => {
           </div>
 
           <div className="flex items-center gap-2">
-            <TelephoneIcon size={16} className="text-[#B8A678]" />
+            <span className="text-[#B8A678] inline-flex">
+              <TelephoneIcon size={16} />
+            </span>
             <div>
               <span className="font-bold block">Phone Desk:</span>
               <span>+1 234 567 8900</span>
@@ -83,7 +87,9 @@ export const MapModal: React.FC<MapModalProps> = ({ isOpen, onClose }) => {
           </div>
 
           <div className="flex items-center gap-2">
-            <Location01Icon size={16} className="text-[#2D3A1F]" />
+            <span className="text-[#2D3A1F] inline-flex">
+              <Location01Icon size={16} />
+            </span>
             <div>
               <span className="font-bold block">Guest Valet:</span>
               <span>Complimentary Service</span>

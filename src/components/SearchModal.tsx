@@ -40,7 +40,9 @@ export const SearchModal: React.FC<SearchModalProps> = ({
       >
         {/* Header */}
         <div className="flex items-center gap-3 border-b border-[#CDD2C9] pb-4">
-          <Search01Icon size={20} className="text-[#2D3A1F]/50" />
+          <span className="text-[#2D3A1F]/50 inline-flex">
+            <Search01Icon size={20} />
+          </span>
           <input
             type="text"
             autoFocus
@@ -79,6 +81,9 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                   <img
                     src={dish.image}
                     alt={dish.name}
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=200&q=80';
+                    }}
                     className="w-14 h-14 rounded-xl object-cover"
                     referrerPolicy="no-referrer"
                   />
@@ -88,7 +93,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                     </h4>
                     <p className="text-xs text-[#2D3A1F]/70 line-clamp-1 font-light">{dish.description}</p>
                     <div className="flex items-center gap-1 text-[11px] text-[#B8A678] mt-0.5">
-                      <StarIcon size={12} className="fill-current" /> <span className="font-bold text-[#2D3A1F]">{dish.rating}</span>
+                      <span className="fill-current inline-flex"><StarIcon size={12} /></span> <span className="font-bold text-[#2D3A1F]">{dish.rating}</span>
                     </div>
                   </div>
                 </div>

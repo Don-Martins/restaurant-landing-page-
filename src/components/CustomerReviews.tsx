@@ -38,7 +38,7 @@ export const CustomerReviews: React.FC = () => {
       {/* Background Subtle Gradient Glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(184,166,120,0.08)_0%,_transparent_70%)] pointer-events-none"></div>
 
-      <div className="max-w-5xl mx-auto px-6 md:px-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 relative z-10">
         
         {/* Section Header */}
         <motion.div 
@@ -48,10 +48,7 @@ export const CustomerReviews: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="text-center max-w-2xl mx-auto space-y-3 mb-16"
         >
-          <span className="font-heading text-xs font-bold text-[#B8A678] tracking-[0.25em] uppercase block">
-            GUEST EXPERIENCES
-          </span>
-          <h2 className="font-heading text-3xl md:text-5xl font-normal text-[#F4F1E8] tracking-tight">
+          <h2 className="font-heading text-2xl md:text-4xl font-semibold text-[#F4F1E8] tracking-tight">
             What Our Guests Say
           </h2>
           <p className="font-sans text-[#CDD2C9]/80 text-base md:text-lg font-light">
@@ -79,7 +76,9 @@ export const CustomerReviews: React.FC = () => {
           </div>
 
           {/* Watermark Quote Icon */}
-          <QuoteUpIcon size={110} className="absolute -top-4 -right-4 text-[#B8A678]/10 pointer-events-none" />
+          <span className="absolute -top-4 -right-4 text-[#B8A678]/10 pointer-events-none inline-flex">
+            <QuoteUpIcon size={110} />
+          </span>
 
           {/* Active Testimonial Card with AnimatePresence */}
           <AnimatePresence mode="wait">
@@ -92,9 +91,11 @@ export const CustomerReviews: React.FC = () => {
               className="space-y-6 relative z-10"
             >
               {/* Star Rating */}
-              <div className="flex items-center gap-1.5 text-[#B8A678]">
+              <div className="flex items-center gap-1.5">
                 {[...Array(currentReview.rating)].map((_, i) => (
-                  <StarIcon key={i} size={18} className="fill-current" />
+                  <span key={i} className="text-[#B8A678] fill-current inline-flex">
+                    <StarIcon size={18} />
+                  </span>
                 ))}
               </div>
 
@@ -112,7 +113,7 @@ export const CustomerReviews: React.FC = () => {
                   referrerPolicy="no-referrer"
                 />
                 <div>
-                  <h4 className="font-heading font-bold text-lg text-[#F4F1E8]">
+                  <h4 className="font-heading font-semibold text-lg text-[#F4F1E8]">
                     {currentReview.customerName}
                   </h4>
                   <span className="text-xs text-[#B8A678] font-medium block">

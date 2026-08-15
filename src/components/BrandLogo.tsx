@@ -16,11 +16,11 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
   badge = false,
 }) => {
   const sizeMap = {
-    sm: { logo: 'w-8 h-8 aspect-square' },
-    md: { logo: 'w-10 h-10 sm:w-11 sm:h-11 aspect-square' },
-    nav: { logo: 'w-10 h-10 sm:w-[44px] sm:h-[44px] aspect-square' },
-    lg: { logo: 'w-18 h-18 sm:w-20 sm:h-20 aspect-square' },
-    xl: { logo: 'w-28 h-28 sm:w-36 sm:h-36 aspect-square' },
+    sm: { logo: 'w-9 h-9 sm:w-10 sm:h-10 aspect-square' },
+    md: { logo: 'w-12 h-12 sm:w-14 sm:h-14 aspect-square' },
+    nav: { logo: 'w-11 h-11 sm:w-12 sm:h-12 aspect-square' },
+    lg: { logo: 'w-20 h-20 sm:w-24 sm:h-24 aspect-square' },
+    xl: { logo: 'w-32 h-32 sm:w-40 sm:h-40 aspect-square' },
   };
 
   const colorMap = {
@@ -89,18 +89,18 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
           <circle
             cx="250"
             cy="250"
-            r="238"
+            r="236"
             stroke={currentColors.color}
-            strokeWidth="5"
+            strokeWidth="8"
           />
 
           {/* 2. Outer Ring 2 (Thin accent border) */}
           <circle
             cx="250"
             cy="250"
-            r="228"
+            r="226"
             stroke={currentColors.color}
-            strokeWidth="2"
+            strokeWidth="3.5"
           />
 
           {/* 3. Middle Ring (Separates outer band from inner seal) */}
@@ -109,25 +109,25 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
             cy="250"
             r="162"
             stroke={currentColors.color}
-            strokeWidth="2.5"
+            strokeWidth="4"
           />
 
           {/* 4. CURVED TEXT: THE CUISINE */}
-          <text fill={currentColors.text} fontSize="46" fontWeight="800" letterSpacing="6" fontFamily="serif, 'Playfair Display', 'Cinzel'">
+          <text fill={currentColors.text} fontSize="47" fontWeight="900" letterSpacing="6" fontFamily="serif, 'Playfair Display', 'Cinzel'">
             <textPath href={`#${topOuterArcId}`} startOffset="50%" textAnchor="middle">
               THE CUISINE
             </textPath>
           </text>
 
           {/* 5. CURVED TEXT: RESTAURANT */}
-          <text fill={currentColors.text} fontSize="44" fontWeight="800" letterSpacing="7" fontFamily="serif, 'Playfair Display', 'Cinzel'">
+          <text fill={currentColors.text} fontSize="45" fontWeight="900" letterSpacing="7" fontFamily="serif, 'Playfair Display', 'Cinzel'">
             <textPath href={`#${bottomOuterArcId}`} startOffset="50%" textAnchor="middle">
               RESTAURANT
             </textPath>
           </text>
 
           {/* 6. CURVED TEXT: PREMIUM QUALITY FOOD */}
-          <text fill={currentColors.text} fontSize="20" fontWeight="600" letterSpacing="3" fontFamily="sans-serif, 'Plus Jakarta Sans'">
+          <text fill={currentColors.text} fontSize="21" fontWeight="700" letterSpacing="3" fontFamily="sans-serif, 'Plus Jakarta Sans'">
             <textPath href={`#${topInnerArcId}`} startOffset="50%" textAnchor="middle">
               PREMIUM QUALITY FOOD
             </textPath>
@@ -140,13 +140,13 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
               d="M236,155 L236,195 C236,208 244,215 248,215 L248,315 C248,318 249,320 250,320 C251,320 252,318 252,315 L252,215 C256,215 264,208 264,195 L264,155"
               fill="none"
               stroke={currentColors.color}
-              strokeWidth="4.5"
+              strokeWidth="6"
               strokeLinecap="round"
               strokeLinejoin="round"
             />
-            <line x1="243" y1="155" x2="243" y2="190" stroke={currentColors.color} strokeWidth="3.5" strokeLinecap="round" />
-            <line x1="250" y1="155" x2="250" y2="190" stroke={currentColors.color} strokeWidth="3.5" strokeLinecap="round" />
-            <line x1="257" y1="155" x2="257" y2="190" stroke={currentColors.color} strokeWidth="3.5" strokeLinecap="round" />
+            <line x1="243" y1="155" x2="243" y2="190" stroke={currentColors.color} strokeWidth="4.5" strokeLinecap="round" />
+            <line x1="250" y1="155" x2="250" y2="190" stroke={currentColors.color} strokeWidth="4.5" strokeLinecap="round" />
+            <line x1="257" y1="155" x2="257" y2="190" stroke={currentColors.color} strokeWidth="4.5" strokeLinecap="round" />
           </g>
 
           {/* Spoon (Top-Right to Bottom-Left) */}
@@ -155,7 +155,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
               d="M250,155 C234,155 232,180 232,196 C232,208 242,215 247,215 L247,315 C247,318 249,320 250,320 C251,320 253,318 253,315 L253,215 C258,215 268,208 268,196 C268,180 266,155 250,155 Z"
               fill="none"
               stroke={currentColors.color}
-              strokeWidth="4"
+              strokeWidth="5.5"
               strokeLinejoin="round"
             />
           </g>
@@ -166,8 +166,8 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
             y="335"
             textAnchor="middle"
             fill={currentColors.text}
-            fontSize="18"
-            fontWeight="600"
+            fontSize="19"
+            fontWeight="700"
             letterSpacing="2"
             fontFamily="serif, 'Playfair Display'"
           >

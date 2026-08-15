@@ -5,30 +5,30 @@
     <path id="topInnerArc" d="M 110,250 A 140,140 0 0,1 390,250" />
   </defs>
 
-  <circle cx="250" cy="250" r="238" fill="none" stroke="#131B0E" stroke-width="5" />
-  <circle cx="250" cy="250" r="228" fill="none" stroke="#131B0E" stroke-width="2" />
-  <circle cx="250" cy="250" r="162" fill="none" stroke="#131B0E" stroke-width="2.5" />
+  <circle cx="250" cy="250" r="236" fill="none" stroke="#131B0E" stroke-width="12" />
+  <circle cx="250" cy="250" r="222" fill="none" stroke="#131B0E" stroke-width="5" />
+  <circle cx="250" cy="250" r="162" fill="none" stroke="#131B0E" stroke-width="6" />
 
-  <text fill="#131B0E" font-size="46" font-weight="800" letter-spacing="6" font-family="serif, 'Playfair Display', 'Cinzel'">
+  <text fill="#131B0E" font-size="48" font-weight="900" letter-spacing="6" font-family="serif, 'Playfair Display', 'Cinzel'">
     <textPath href="#topOuterArc" startOffset="50%" text-anchor="middle">THE CUISINE</textPath>
   </text>
-  <text fill="#131B0E" font-size="44" font-weight="800" letter-spacing="7" font-family="serif, 'Playfair Display', 'Cinzel'">
+  <text fill="#131B0E" font-size="46" font-weight="900" letter-spacing="7" font-family="serif, 'Playfair Display', 'Cinzel'">
     <textPath href="#bottomOuterArc" startOffset="50%" text-anchor="middle">RESTAURANT</textPath>
   </text>
-  <text fill="#131B0E" font-size="20" font-weight="600" letter-spacing="3" font-family="sans-serif, 'Plus Jakarta Sans'">
+  <text fill="#131B0E" font-size="22" font-weight="800" letter-spacing="3" font-family="sans-serif, 'Plus Jakarta Sans'">
     <textPath href="#topInnerArc" startOffset="50%" text-anchor="middle">PREMIUM QUALITY FOOD</textPath>
   </text>
 
   <g transform="translate(250, 240) rotate(-40) translate(-250, -240)">
-    <path d="M236,155 L236,195 C236,208 244,215 248,215 L248,315 C248,318 249,320 250,320 C251,320 252,318 252,315 L252,215 C256,215 264,208 264,195 L264,155" fill="none" stroke="#131B0E" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
-    <line x1="243" y1="155" x2="243" y2="190" stroke="#131B0E" stroke-width="3.5" stroke-linecap="round" />
-    <line x1="250" y1="155" x2="250" y2="190" stroke="#131B0E" stroke-width="3.5" stroke-linecap="round" />
-    <line x1="257" y1="155" x2="257" y2="190" stroke="#131B0E" stroke-width="3.5" stroke-linecap="round" />
+    <path d="M236,155 L236,195 C236,208 244,215 248,215 L248,315 C248,318 249,320 250,320 C251,320 252,318 252,315 L252,215 C256,215 264,208 264,195 L264,155" fill="none" stroke="#131B0E" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" />
+    <line x1="243" y1="155" x2="243" y2="190" stroke="#131B0E" stroke-width="6.5" stroke-linecap="round" />
+    <line x1="250" y1="155" x2="250" y2="190" stroke="#131B0E" stroke-width="6.5" stroke-linecap="round" />
+    <line x1="257" y1="155" x2="257" y2="190" stroke="#131B0E" stroke-width="6.5" stroke-linecap="round" />
   </g>
 
   <g transform="translate(250, 240) rotate(40) translate(-250, -240)">
-    <path d="M250,155 C234,155 232,180 232,196 C232,208 242,215 247,215 L247,315 C247,318 249,320 250,320 C251,320 253,318 253,315 L253,215 C258,215 268,208 268,196 C268,180 266,155 250,155 Z" fill="none" stroke="#131B0E" stroke-width="4" stroke-linejoin="round" />
+    <path d="M250,155 C234,155 232,180 232,196 C232,208 242,215 247,215 L247,315 C247,318 249,320 250,320 C251,320 253,318 253,315 L253,215 C258,215 268,208 268,196 C268,180 266,155 250,155 Z" fill="none" stroke="#131B0E" stroke-width="8" stroke-linejoin="round" />
   </g>
 
-  <text x="250" y="335" text-anchor="middle" fill="#131B0E" font-size="18" font-weight="600" letter-spacing="2" font-family="serif, 'Playfair Display'">Since 1995</text>
+  <text x="250" y="335" text-anchor="middle" fill="#131B0E" font-size="20" font-weight="800" letter-spacing="2" font-family="serif, 'Playfair Display'">Since 1995</text>
 </svg>
